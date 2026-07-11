@@ -1,0 +1,23 @@
+{
+    "MicrosoftTeams": {
+        "IncomingWebhookRequiredErrorMessage": "Ní féidir URL Webhook Microsoft Teams a bheith folamh.",
+        "IncomingWebhookInvalidErrorMessage": "URL Gréasáin neamhbhailí Microsoft Teams.",
+        "TeamsWebhookUrl": "URL Gréasáin Microsoft Teams",
+        "TeamsChannel": "Cainéal Foirne Microsoft",
+        "ClientIdTitle": "Aitheantas Cliant Microsoft",
+        "ClientIdDescription": "Cuir isteach d'ID Cliant Microsoft atá le fáil ar leathanach Forbhreathnú na bhfeidhmchlár cliant. %1$Foghlaim tuilleadh%2$s.",
+        "ClientSecretTitle": "Rún Cliant Microsoft",
+        "ClientSecretExpiryDateTitle": "Dáta Éaga Rún Cliant Microsoft",
+        "ClientSecretExpiryDateDescription": "Roghnach. Socraigh an dáta éaga i bhformáid YYYY-MM-DD chun foláireamh a fháil nuair a bheidh an dáta éaga ann.",
+        "ClientSecretDescription": "Cuir isteach do Rún Cliant Microsoft atá sainmhínithe ar leathanach Teastais agus Rúin an fheidhmchláir chliaint. Is é 24 mhí an dáta éaga molta. %1$sFoghlaim tuilleadh%2$s.",
+        "TenantIdTitle": "Aitheantas Tionónta Microsoft",
+        "TenantIdDescription": "Cuir isteach d'ID Tionónta Microsoft atá le fáil ar leathanach Forbhreathnú an fheidhmchláir chliaint. %1$sFoghlaim tuilleadh%2$s.",
+        "TeamIdTitle": "Aitheantas Foirne Microsoft",
+        "TeamIdDescription": "Cuir isteach d’ID Microsoft Teams. %1$sFoghlaim tuilleadh%2$s.",
+        "TeamsEnterYourWebhookUrlText": "Cuir isteach d’URL Webhook Microsoft Teams. %1$sFoghlaim tuilleadh%2$s faoi conas an URL Webhook a fháil.",
+        "RequiredFieldsNotSet": "Níl na réimsí riachtanacha chun comhad a sheoladh socraithe. Socraigh iad %1$shere%2$s le do thoil.",
+        "PleaseFindYourReport": "Seo do thuairisc %1$s do %2$s.",
+        "MicrosoftTeamsAlertContent": "Tá %1$s curtha i ngníomh don suíomh Gréasáin %2$s mar an mhéadrach %3$s sa tuarascáil %4$s %5$s.",
+        "ClientSecretExpiryNote": "%1$sNóta:%2$s Tá sé sceidealaithe go rachaidh rún an chliaint in éag ar %3$s. Gin comhartha nua agus nuashonraigh é i Matomo le cinntiú go mbeidh tuairiscí sceidealaithe gan bhriseadh ann."
+    }
+}

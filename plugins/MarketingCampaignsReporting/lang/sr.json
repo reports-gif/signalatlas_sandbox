@@ -1,0 +1,13 @@
+{
+    "MarketingCampaignsReporting": {
+        "CombinedSourceMedium": "Izvor - Medium",
+        "CampaignId": "ID kampanje",
+        "CombinedKeywordContent": "Ključna reč - sadržaj",
+        "Names": "Nazivi kampanja",
+        "Keywords": "Ključne reči kampanja",
+        "Sources": "Izvori kampanja",
+        "Mediums": "Mediumi kampanja",
+        "Contents": "Sadržaji kampanja",
+        "CombinedSourcesMediums": "Izvor kampanje - medium"
+    }
+}

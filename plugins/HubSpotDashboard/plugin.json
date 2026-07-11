@@ -1,0 +1,14 @@
+{
+  "name": "HubSpotDashboard",
+  "version": "9.0.0",
+  "description": "Advanced SignalAtlas revenue intelligence dashboard with hot accounts, source-to-revenue attribution, top intent pages, CRM data quality gaps, HubSpot companies, deals, and contact journeys.",
+  "theme": false,
+  "require": {
+    "matomo": ">=4.0.0-b1,<6.0.0-b1"
+  },
+  "authors": [
+    {
+      "name": "Intent Amplify"
+    }
+  ]
+}

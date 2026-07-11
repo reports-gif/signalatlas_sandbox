@@ -1,0 +1,14 @@
+{
+  "name": "HubSpotDashboard",
+  "version": "1.2.0",
+  "description": "Shows HubSpot metrics and clickable contact journey details inside Matomo.",
+  "theme": false,
+  "require": {
+    "matomo": ">=5.0.0"
+  },
+  "authors": [
+    {
+      "name": "IntentAmplify"
+    }
+  ]
+}

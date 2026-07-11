@@ -1,0 +1,17 @@
+{
+	"name": "ip2location/ip2location-piwik",
+	"type": "plugin",
+	"description": "Use the IP2Location geolocation service to lookup your visitors' locations. You can configure the settings under System → IP2Location.",
+	"keywords": ["geolocation", "ip2location", "piwik"],
+	"homepage": "https://www.ip2location.com/",
+	"license": "GPL-3.0-only",
+	"authors": [
+		{
+			"name": "IP2Location",
+			"email": "support@ip2location.com"
+		}
+	],
+	"require": {
+		"php": ">=7.4"
+	}
+}

@@ -1,0 +1,134 @@
+{#
+Sales Demo Dashboard - Enterprise SignalAtlas / HubSpot style
+Drop this as a Matomo Twig widget/template. It uses your existing variables where available:
+connection, generatedAt, fromCache, refreshUrl, mqlCount, sqlCount, opportunityCount, revenue,
+closedWonDeals, hubspotCompanyCount, exampleRows, companyMatches, hubspotCompanies, errors.
+#}
+
+{% set totalVisitors = totalVisitors|default(matomoRecentVisitsCount|default(2473)) %}
+{% set highIntentVisits = highIntentVisits|default(strongCompanyMatches|default(827)) %}
+{% set pageViews = pageViews|default(totalPageViews|default(6753)) %}
+{% set avgTimeOnSite = avgTimeOnSite|default('03:48') %}
+{% set goalConversions = goalConversions|default(mqlCount|default(152)) %}
+{% set dateRangeLabel = dateRangeLabel|default('May 12 – May 18, 2025') %}
+{% set websiteLabel = websiteLabel|default('All Websites') %}
+
+<style>
+    :root{
+        --sa-blue:#0b63f6;
+        --sa-blue-2:#0757d8;
+        --sa-navy:#061a3a;
+        --sa-navy-2:#09234f;
+        --sa-bg:#f5f7fb;
+        --sa-card:#ffffff;
+        --sa-line:#e6ebf2;
+        --sa-text:#0f172a;
+        --sa-muted:#64748b;
+        --sa-soft:#f8fafc;
+        --sa-green:#16a34a;
+        --sa-red:#dc2626;
+        --sa-amber:#d97706;
+        --sa-purple:#5b43e8;
+        --sa-shadow:0 18px 45px rgba(15,23,42,.08);
+        --sa-shadow-soft:0 8px 24px rgba(15,23,42,.06);
+    }
+    .sa-dash{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--sa-bg);color:var(--sa-text);min-height:100vh;display:grid;grid-template-columns:248px minmax(0,1fr);border-radius:20px;overflow:hidden;border:1px solid var(--sa-line)}
+    .sa-dash *{box-sizing:border-box}
+    .sa-side{background:linear-gradient(180deg,#061b40 0%,#031126 100%);color:#fff;padding:22px 16px;display:flex;flex-direction:column;gap:20px;min-height:920px}
+    .sa-brand{display:flex;align-items:center;gap:12px;padding:4px 6px 18px;border-bottom:1px solid rgba(255,255,255,.1)}
+    .sa-logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,#0b63f6,#67e8f9);display:grid;place-items:center;font-weight:900;box-shadow:0 10px 26px rgba(11,99,246,.34)}
+    .sa-brand h1{font-size:15px;line-height:1.05;margin:0;font-weight:900;letter-spacing:.22em;text-transform:uppercase}
+    .sa-brand small{display:block;margin-top:5px;color:#b8c7dc;font-size:11px;letter-spacing:.02em;text-transform:none}
+    .sa-nav{display:flex;flex-direction:column;gap:7px}
+    .sa-nav a{display:flex;align-items:center;gap:12px;color:#e5edf8;text-decoration:none;border-radius:11px;padding:11px 12px;font-size:14px;font-weight:750;transition:.18s ease}
+    .sa-nav a:hover{background:rgba(255,255,255,.08)}
+    .sa-nav a.active{background:linear-gradient(135deg,#0b63f6,#1d4ed8);box-shadow:0 12px 26px rgba(11,99,246,.28)}
+    .sa-ico{width:20px;height:20px;display:grid;place-items:center;font-size:15px;opacity:.95}
+    .sa-side-card{margin-top:auto;border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.055);border-radius:16px;padding:16px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+    .sa-side-card h3{margin:0 0 8px;font-size:16px}.sa-side-card p{margin:0;color:#d5e2f3;font-size:13px;line-height:1.55}.sa-help{display:block;margin-top:14px;padding:11px;border-radius:12px;background:#113b84;color:#fff;text-align:center;text-decoration:none;font-weight:800;font-size:13px}.sa-collapse{color:#d5e2f3;text-decoration:none;font-size:14px;font-weight:750;border-top:1px solid rgba(255,255,255,.1);padding-top:18px}
+    .sa-main{padding:24px 24px 28px;min-width:0}
+    .sa-top{display:flex;justify-content:space-between;gap:18px;align-items:flex-start;margin-bottom:22px}
+    .sa-title h2{margin:0;font-size:28px;letter-spacing:-.04em;font-weight:950;color:#0b1220}.sa-title p{margin:6px 0 0;color:var(--sa-muted);font-size:14px}.sa-controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}.sa-control,.sa-btn{height:42px;border:1px solid var(--sa-line);background:#fff;border-radius:12px;padding:0 14px;display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:800;color:#334155;text-decoration:none;box-shadow:0 4px 12px rgba(15,23,42,.04)}.sa-btn-primary{background:linear-gradient(135deg,#0b63f6,#0757d8);color:#fff;border-color:#0757d8}
+    .sa-kpis{display:grid;grid-template-columns:repeat(5,minmax(160px,1fr));gap:14px;margin-bottom:16px}.sa-kpi{background:#fff;border:1px solid var(--sa-line);border-radius:18px;padding:18px;box-shadow:var(--sa-shadow-soft);overflow:hidden;position:relative}.sa-kpi:after{content:"";position:absolute;right:-30px;top:-30px;width:96px;height:96px;border-radius:999px;background:rgba(11,99,246,.06)}.sa-kpi-label{font-size:13px;font-weight:900;color:#0f172a;margin-bottom:13px}.sa-kpi-value{font-size:29px;font-weight:950;letter-spacing:-.04em;line-height:1}.sa-trend{margin-top:9px;font-size:12px;font-weight:800;color:var(--sa-green)}.sa-mini-line{margin-top:15px;height:32px;background:linear-gradient(90deg,transparent 0%,rgba(11,99,246,.08) 40%,transparent 100%);position:relative;border-radius:8px}.sa-mini-line svg{width:100%;height:32px;display:block}.sa-board{display:grid;grid-template-columns:1fr 1.06fr;gap:16px}.sa-panel{background:#fff;border:1px solid var(--sa-line);border-radius:18px;padding:18px;box-shadow:var(--sa-shadow-soft);min-width:0}.sa-panel-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:14px}.sa-panel h3{margin:0;font-size:16px;font-weight:950;letter-spacing:-.015em}.sa-info{color:#94a3b8;font-size:13px}.sa-table{width:100%;border-collapse:separate;border-spacing:0;font-size:13px}.sa-table th{color:#64748b;font-size:11px;text-transform:uppercase;letter-spacing:.04em;text-align:left;padding:9px 0;border-bottom:1px solid #edf1f6}.sa-table td{padding:13px 0;border-bottom:1px solid #f1f5f9;vertical-align:middle;color:#1e293b}.sa-table tr:last-child td{border-bottom:0}.sa-company{display:flex;align-items:center;gap:9px;font-weight:850}.sa-flag{font-size:16px}.sa-muted{color:var(--sa-muted);font-size:12px}.sa-link{display:inline-flex;align-items:center;gap:8px;margin-top:14px;color:#0b63f6;text-decoration:none;font-weight:900;font-size:13px}.sa-signal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:14px}.sa-signal{border:1px solid var(--sa-line);border-radius:14px;padding:13px;background:#fff;text-align:center}.sa-signal small{display:block;color:#64748b;font-size:11px;font-weight:800}.sa-signal strong{display:block;margin-top:8px;font-size:25px;letter-spacing:-.03em}.sa-signal span{display:block;margin-top:5px;color:var(--sa-green);font-size:11px;font-weight:900}.sa-signal.down span{color:var(--sa-red)}.sa-bars{display:grid;gap:11px}.sa-bar-row{display:grid;grid-template-columns:170px 1fr 42px;gap:12px;align-items:center;font-size:13px}.sa-bar{height:7px;background:#eef2f7;border-radius:999px;overflow:hidden}.sa-bar i{display:block;height:100%;background:linear-gradient(90deg,#0b63f6,#6aa7ff);border-radius:999px}.sa-action-grid{display:grid;grid-template-columns:260px 1fr;gap:18px}.sa-action-card{border:1px solid var(--sa-line);border-radius:14px;background:#f8fafc;padding:15px}.sa-action-card h4{margin:0 0 12px;font-size:12px;text-transform:uppercase;letter-spacing:.04em}.sa-action-card strong{display:block;font-size:28px;margin:10px 0 3px}.sa-message{margin-top:13px;border:1px solid var(--sa-line);border-radius:12px;padding:14px;background:#fff;color:#475569;font-size:13px;line-height:1.45}.sa-heat{display:grid;grid-template-columns:42px repeat(13,1fr);gap:3px;align-items:center}.sa-heat-label{font-size:11px;color:#334155;text-align:right;padding-right:5px}.sa-cell{height:22px;border-radius:4px;background:#e8f0ff}.sa-cell.l1{background:#dce8ff}.sa-cell.l2{background:#bed4ff}.sa-cell.l3{background:#8eb7ff}.sa-cell.l4{background:#5c98ff}.sa-cell.l5{background:#176df3}.sa-legend{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:14px;color:#334155;font-size:12px}.sa-pipe-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:16px}.sa-pipe-card{border:1px solid var(--sa-line);border-radius:14px;padding:14px;background:#fff}.sa-pipe-card small{display:block;color:#475569;font-weight:800}.sa-pipe-card strong{display:block;font-size:28px;color:#0b63f6;margin-top:7px;letter-spacing:-.04em}.sa-chart{height:190px;border-bottom:1px solid #e5e7eb;border-left:1px solid #e5e7eb;position:relative;margin-top:10px;background:linear-gradient(180deg,rgba(11,99,246,.04),transparent)}.sa-chart svg{position:absolute;inset:0;width:100%;height:100%}.sa-alert{padding:12px 14px;border-radius:13px;border:1px solid #fecaca;background:#fef2f2;color:#991b1b;font-size:13px;margin-bottom:14px}
+    @media(max-width:1180px){.sa-dash{grid-template-columns:1fr}.sa-side{min-height:auto}.sa-kpis{grid-template-columns:repeat(2,1fr)}.sa-board{grid-template-columns:1fr}.sa-side{display:none}.sa-action-grid{grid-template-columns:1fr}.sa-signal-grid,.sa-pipe-grid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){.sa-main{padding:16px}.sa-top{flex-direction:column}.sa-kpis{grid-template-columns:1fr}.sa-signal-grid,.sa-pipe-grid{grid-template-columns:1fr}.sa-table-wrap{overflow:auto}.sa-table{min-width:720px}.sa-bar-row{grid-template-columns:130px 1fr 34px}.sa-heat{grid-template-columns:32px repeat(7,1fr)}}
+</style>
+
+<div class="sa-dash">
+    <aside class="sa-side">
+        <div class="sa-brand"><div class="sa-logo">▰</div><div><h1>Intelligence</h1><small>Revenue Signal OS</small></div></div>
+        <nav class="sa-nav">
+            <a class="active" href="#"><span class="sa-ico">⌂</span>Dashboard</a>
+            <a href="#"><span class="sa-ico">♙</span>Visitors</a>
+            <a href="#"><span class="sa-ico">◌</span>Behavior</a>
+            <a href="#"><span class="sa-ico">↗</span>Acquisition</a>
+            <a href="#"><span class="sa-ico">◇</span>Goals</a>
+            <a href="#"><span class="sa-ico">▱</span>Ecommerce</a>
+            <a href="#"><span class="sa-ico">▽</span>Funnels</a>
+            <a href="#"><span class="sa-ico">☷</span>Forms</a>
+            <a href="#"><span class="sa-ico">◫</span>Media</a>
+            <a href="#"><span class="sa-ico">⌁</span>A/B Tests</a>
+            <a href="#"><span class="sa-ico">◉</span>Heatmaps</a>
+            <a href="#"><span class="sa-ico">▣</span>Session Recordings</a>
+            <a href="#"><span class="sa-ico">▤</span>Reports</a>
+            <a href="#"><span class="sa-ico">▧</span>Custom Reports</a>
+        </nav>
+        <div class="sa-side-card"><h3>Demo Mode</h3><p>You are viewing a simulated enterprise revenue-intelligence dashboard with realistic buyer-intent data.</p><a class="sa-help" href="#">Need help?</a></div>
+        <a class="sa-collapse" href="#">‹‹ Collapse</a>
+    </aside>
+
+    <main class="sa-main">
+        <div class="sa-top">
+            <div class="sa-title"><h2>Sales Demo Dashboard</h2><p>Overview of high-intent US visitors, attribution evidence, and revenue engagement insights.</p></div>
+            <div class="sa-controls">
+                <span class="sa-control">▣ {{ dateRangeLabel }}</span>
+                <span class="sa-control">{{ websiteLabel }}⌄</span>
+                <a class="sa-control" href="{{ refreshUrl|default('#') }}">↻</a>
+                <span class="sa-control">⋮</span>
+                <a class="sa-btn sa-btn-primary" href="#">✎ Edit Dashboard</a>
+            </div>
+        </div>
+
+        {% if errors.mql or errors.sql or errors.deals or errors.companies %}<div class="sa-alert"><strong>API warning:</strong> {{ errors.mql }} {{ errors.sql }} {{ errors.deals }} {{ errors.companies }}</div>{% endif %}
+
+        <section class="sa-kpis">
+            {% set kpis = [
+                {'label':'Visitors (US)','value':totalVisitors|number_format(0,'.',','),'trend':'↑ 18.6% vs previous 7 days'},
+                {'label':'High-Intent Visits','value':highIntentVisits|number_format(0,'.',','),'trend':'↑ 22.1% vs previous 7 days'},
+                {'label':'Page Views','value':pageViews|number_format(0,'.',','),'trend':'↑ 14.3% vs previous 7 days'},
+                {'label':'Avg. Time on Site','value':avgTimeOnSite,'trend':'↑ 8.7% vs previous 7 days'},
+                {'label':'Goal Conversions','value':goalConversions|number_format(0,'.',','),'trend':'↑ 16.2% vs previous 7 days'}
+            ] %}
+            {% for item in kpis %}
+            <article class="sa-kpi"><div class="sa-kpi-label">{{ item.label }}</div><div class="sa-kpi-value">{{ item.value }}</div><div class="sa-trend">{{ item.trend }}</div><div class="sa-mini-line"><svg viewBox="0 0 220 32" preserveAspectRatio="none"><polyline fill="none" stroke="#0b63f6" stroke-width="2.2" points="0,20 22,17 44,18 66,12 88,20 110,23 132,19 154,10 176,5 198,18 220,18"/></svg></div></article>
+            {% endfor %}
+        </section>
+
+        <section class="sa-board">
+            <article class="sa-panel"><div class="sa-panel-head"><h3>Top High-Intent Companies (US) <span class="sa-info">ⓘ</span></h3></div><div class="sa-table-wrap"><table class="sa-table"><thead><tr><th>Company (by IP)</th><th>Location</th><th>Pages</th><th>Visits</th><th>Avg. Time</th><th>Last Seen</th></tr></thead><tbody>
+                {% for row in companyMatches|slice(0,5) %}<tr><td><div class="sa-company"><span class="sa-flag">🇺🇸</span>{{ row.hubspotCompany|default(row.matomoCompany|default('Not captured')) }}</div></td><td>{{ row.location|default('United States') }}</td><td>{{ row.pages|default(loop.index + 5) }}</td><td>{{ row.visits|default(6 - loop.index) }}</td><td>{{ row.avgTime|default('04:' ~ (20 + loop.index)) }}</td><td>{{ row.visitTime|default('Recently') }}</td></tr>
+                {% else %}
+                    {% set demoCompanies = [
+                        {'c':'FinTech Inc.','l':'New York, NY','p':'12','v':'5','t':'06:21','d':'May 18, 2025'},
+                        {'c':'HealthCorp','l':'San Francisco, CA','p':'9','v':'4','t':'04:32','d':'May 17, 2025'},
+                        {'c':'Secure Systems LLC','l':'Austin, TX','p':'7','v':'3','t':'05:10','d':'May 17, 2025'},
+                        {'c':'DataGuard Co.','l':'Boston, MA','p':'6','v':'3','t':'03:52','d':'May 16, 2025'},
+                        {'c':'InfraShield','l':'Seattle, WA','p':'5','v':'2','t':'04:11','d':'May 16, 2025'}
+                    ] %}
+                    {% for d in demoCompanies %}<tr><td><div class="sa-company"><span class="sa-flag">🇺🇸</span>{{ d.c }}</div></td><td>{{ d.l }}</td><td>{{ d.p }}</td><td>{{ d.v }}</td><td>{{ d.t }}</td><td>{{ d.d }}</td></tr>{% endfor %}
+                {% endfor %}
+            </tbody></table></div><a class="sa-link" href="#">View full visitor log →</a></article>
+
+            <article class="sa-panel"><div class="sa-panel-head"><h3>How We Know (Behavior Signals) <span class="sa-info">ⓘ</span></h3></div><div class="sa-signal-grid"><div class="sa-signal"><small>Pages per Visit</small><strong>8.24</strong><span>↑ 12.5%</span></div><div class="sa-signal"><small>Avg. Time on Page</small><strong>00:46</strong><span>↑ 9.3%</span></div><div class="sa-signal"><small>Returning Visits</small><strong>31%</strong><span>↑ 6.8%</span></div><div class="sa-signal down"><small>Bounce Rate</small><strong>42%</strong><span>↓ -5.6%</span></div></div><div class="sa-panel-head" style="margin-top:8px"><h3 style="font-size:14px">Top Pages Visited</h3><strong class="sa-muted">Visits</strong></div><div class="sa-bars">
+                {% set pages = [{'u':'/pricing','v':'512','w':'86%'},{'u':'/solutions/zero-trust','v':'403','w':'72%'},{'u':'/platform','v':'321','w':'58%'},{'u':'/resources/whitepaper','v':'201','w':'38%'},{'u':'/blog/ransomware-protection','v':'158','w':'26%'}] %}
+                {% for p in pages %}<div class="sa-bar-row"><span>{{ p.u }}</span><div class="sa-bar"><i style="width:{{ p.w }}"></i></div><strong>{{ p.v }}</strong></div>{% endfor %}
+            </div><a class="sa-link" href="#">View full pages report →</a></article>
+
+            <article class="sa-panel"><div class="sa-panel-head"><h3>What To Do Next <span class="sa-info">ⓘ</span></h3></div><div class="sa-action-grid"><div><div class="sa-action-card"><h4>Recommended Action</h4><div class="sa-muted">▣ Reach out to high-intent companies within</div><strong>24 hours</strong></div><div class="sa-message"><b>Suggested Message</b><br><br>“Help secure your business with our Zero Trust solution. Let's connect!”</div></div><div><h4 style="margin:0 0 12px;text-align:center;font-size:13px">Best Time to Reach Out</h4><div class="sa-heat">
+                {% set days = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'] %}{% for day in days %}<div class="sa-heat-label">{{ day }}</div>{% for i in 1..13 %}<div class="sa-cell l{{ random(1,5) }}"></div>{% endfor %}{% endfor %}
+            </div><div class="sa-legend"><span>Low</span><span class="sa-cell l1" style="width:20px"></span><span class="sa-cell l2" style="width:20px"></span><span class="sa-cell l3" style="width:20px"></span><span class="sa-cell l4" style="width:20px"></span><span class="sa-cell l5" style="width:20px"></span><span>High</span></div></div></div><a class="sa-link" href="#">View full behavior report →</a></article>
+
+            <article class="sa-panel"><div class="sa-panel-head"><h3>Pipeline Impact <span class="sa-info">ⓘ</span></h3></div><div class="sa-pipe-grid"><div class="sa-pipe-card"><small>High-Intent Accounts</small><strong>{{ highIntentAccounts|default(hubspotCompanyCount|default(27)) }}</strong><div class="sa-trend">↑ 22.7%</div></div><div class="sa-pipe-card"><small>Meetings Booked</small><strong>{{ meetingsBooked|default(9) }}</strong><div class="sa-trend">↑ 28.6%</div></div><div class="sa-pipe-card"><small>SQLs</small><strong>{{ sqlCount|default(3) }}</strong><div class="sa-trend">↑ 50%</div></div><div class="sa-pipe-card"><small>Pipeline Value</small><strong>${{ pipelineValue|default('1.2M') }}</strong><div class="sa-trend">↑ 18.4%</div></div></div><h3 style="font-size:14px;margin-top:8px">Conversions Over Time</h3><div class="sa-chart"><svg viewBox="0 0 520 190" preserveAspectRatio="none"><polyline fill="none" stroke="#0b63f6" stroke-width="3" points="0,176 72,135 145,148 218,88 290,122 360,120 430,72 520,22"/><circle cx="0" cy="176" r="5" fill="#0b63f6"/><circle cx="72" cy="135" r="5" fill="#0b63f6"/><circle cx="145" cy="148" r="5" fill="#0b63f6"/><circle cx="218" cy="88" r="5" fill="#0b63f6"/><circle cx="290" cy="122" r="5" fill="#0b63f6"/><circle cx="360" cy="120" r="5" fill="#0b63f6"/><circle cx="430" cy="72" r="5" fill="#0b63f6"/><circle cx="520" cy="22" r="5" fill="#0b63f6"/></svg></div><a class="sa-link" href="#">View full conversions report →</a></article>
+        </section>
+    </main>
+</div>

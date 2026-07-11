@@ -1,0 +1,7 @@
+{
+    "BotTracking": {
+        "PageUrl": "URL stránky",
+        "NoDataHttpTrackingApi": "HTTP Tracking API",
+        "SiteWithoutDataBackToMatomo": "Zpět do Matoma"
+    }
+}

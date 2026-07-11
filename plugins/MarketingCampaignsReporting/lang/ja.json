@@ -1,0 +1,23 @@
+{
+    "MarketingCampaignsReporting": {
+        "CampaignId": "キャンペーン ID",
+        "CampaignIds": "キャンペーンのID",
+        "CombinedKeywordContent": "キーワード - コンテンツ",
+        "CombinedSourceMedium": "ソース‐メディア",
+        "CombinedSourcesMediums": "キャンペーンソース‐メディア",
+        "Content": "キャンペーンの内容",
+        "Contents": "キャンペーンコンテンツ",
+        "Group": "キャンペーンのグループ",
+        "Groups": "キャンペーンのグループ",
+        "Keyword": "キャンペーンのキーワード",
+        "Keywords": "キャンペーンキーワード",
+        "Medium": "キャンペーン媒体",
+        "Mediums": "キャンペーン媒体",
+        "Name": "キャンペーンの名前",
+        "Names": "キャンペーン名",
+        "Placement": "キャンペーンの配置",
+        "Placements": "キャンペーンの配置",
+        "Source": "キャンペーンソース",
+        "Sources": "キャンペーンソース"
+    }
+}

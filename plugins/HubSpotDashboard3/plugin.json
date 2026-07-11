@@ -1,0 +1,14 @@
+{
+  "name": "HubSpotDashboard",
+  "version": "1.0.0",
+  "description": "Shows HubSpot MQL, SQL, opportunity and revenue metrics inside Signal Atlas.",
+  "theme": false,
+  "require": {
+    "matomo": ">=5.0.0"
+  },
+  "authors": [
+    {
+      "name": "IntentAmplify"
+    }
+  ]
+}

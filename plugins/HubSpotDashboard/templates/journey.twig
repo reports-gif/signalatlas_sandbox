@@ -1,0 +1,960 @@
+<style>
+    .ci-page{
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        padding:26px;
+        max-width:1420px;
+        margin:0 auto;
+        color:#0b1220;
+        background:
+            radial-gradient(circle at 8% 0%, rgba(37,99,235,.10), transparent 28%),
+            radial-gradient(circle at 92% 6%, rgba(249,115,22,.10), transparent 24%),
+            linear-gradient(180deg,#f8fafc 0%,#ffffff 46%,#f8fafc 100%);
+        border-radius:28px;
+    }
+    .ci-page *{box-sizing:border-box}
+    .ci-shell{display:grid;gap:18px}
+
+    @keyframes ciFadeUp{
+        from{opacity:0;transform:translateY(14px)}
+        to{opacity:1;transform:translateY(0)}
+    }
+    @keyframes ciGlow{
+        0%,100%{box-shadow:0 18px 52px rgba(15,23,42,.20)}
+        50%{box-shadow:0 22px 64px rgba(37,99,235,.25)}
+    }
+    @keyframes ciBar{
+        from{width:0}
+    }
+    @keyframes ciPulse{
+        0%,100%{transform:scale(1);opacity:.78}
+        50%{transform:scale(1.08);opacity:1}
+    }
+
+    .ci-hero{
+        position:relative;
+        overflow:hidden;
+        border:1px solid rgba(226,232,240,.78);
+        border-radius:30px;
+        padding:26px;
+        background:
+            linear-gradient(135deg,#020617 0%,#0f172a 52%,#172554 100%);
+        color:#fff;
+        box-shadow:0 18px 52px rgba(15,23,42,.20);
+        animation:ciFadeUp .45s ease both, ciGlow 5s ease-in-out infinite;
+    }
+    .ci-hero:before{
+        content:"";
+        position:absolute;
+        inset:0;
+        background:
+            linear-gradient(120deg,rgba(255,255,255,.10),transparent 30%,transparent 70%,rgba(255,255,255,.06)),
+            radial-gradient(circle at 72% 18%,rgba(37,99,235,.38),transparent 26%),
+            radial-gradient(circle at 92% 72%,rgba(249,115,22,.22),transparent 25%);
+        pointer-events:none;
+    }
+    .ci-hero:after{
+        content:"";
+        position:absolute;
+        width:470px;
+        height:470px;
+        right:-220px;
+        top:-235px;
+        border-radius:50%;
+        background:radial-gradient(circle,rgba(59,130,246,.52),rgba(59,130,246,0));
+        pointer-events:none;
+        animation:ciPulse 4s ease-in-out infinite;
+    }
+    .ci-hero-top{
+        position:relative;
+        z-index:1;
+        display:flex;
+        justify-content:space-between;
+        gap:18px;
+        align-items:flex-start;
+    }
+    .ci-kicker{
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding:8px 12px;
+        border:1px solid rgba(147,197,253,.34);
+        background:rgba(37,99,235,.18);
+        color:#bfdbfe;
+        border-radius:999px;
+        font-size:11px;
+        font-weight:800;
+        letter-spacing:.06em;
+        text-transform:uppercase;
+    }
+    .ci-title{
+        margin:14px 0 8px;
+        font-size:clamp(28px,3.2vw,44px);
+        line-height:1.04;
+        letter-spacing:-.04em;
+        font-weight:900;
+    }
+    .ci-subtitle{
+        margin:0;
+        max-width:860px;
+        color:#cbd5e1;
+        font-size:13px;
+        line-height:1.65;
+    }
+    .ci-back{
+        position:relative;
+        z-index:2;
+        display:inline-flex;
+        align-items:center;
+        gap:8px;
+        padding:10px 14px;
+        border-radius:14px;
+        border:1px solid rgba(255,255,255,.18);
+        background:rgba(255,255,255,.10);
+        color:#fff;
+        font-weight:800;
+        text-decoration:none;
+        white-space:nowrap;
+        backdrop-filter:blur(12px);
+    }
+    .ci-back:hover{background:rgba(255,255,255,.16)}
+    .ci-hero-metrics{
+        position:relative;
+        z-index:1;
+        display:grid;
+        grid-template-columns:repeat(4,minmax(0,1fr));
+        gap:12px;
+        margin-top:24px;
+    }
+    .ci-hero-card{
+        border:1px solid rgba(255,255,255,.15);
+        background:rgba(255,255,255,.09);
+        border-radius:20px;
+        padding:16px;
+        backdrop-filter:blur(12px);
+        transition:transform .22s ease, background .22s ease;
+    }
+    .ci-hero-card:hover{transform:translateY(-3px);background:rgba(255,255,255,.13)}
+    .ci-hero-label{
+        font-size:10px;
+        color:#bfdbfe;
+        text-transform:uppercase;
+        letter-spacing:.08em;
+        font-weight:900;
+        margin-bottom:8px;
+    }
+    .ci-hero-value{
+        font-size:17px;
+        font-weight:900;
+        color:#fff;
+        word-break:break-word;
+    }
+
+    .ci-grid{
+        display:grid;
+        grid-template-columns:repeat(12,1fr);
+        gap:18px;
+    }
+    .ci-card{
+        border:1px solid #e5e7eb;
+        background:rgba(255,255,255,.96);
+        border-radius:24px;
+        box-shadow:0 12px 34px rgba(15,23,42,.07);
+        overflow:hidden;
+        animation:ciFadeUp .5s ease both;
+        transition:transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+    }
+    .ci-card:hover{
+        transform:translateY(-2px);
+        border-color:#dbeafe;
+        box-shadow:0 18px 44px rgba(15,23,42,.10);
+    }
+    .ci-card-pad{padding:20px}
+    .ci-span-4{grid-column:span 4}
+    .ci-span-5{grid-column:span 5}
+    .ci-span-6{grid-column:span 6}
+    .ci-span-7{grid-column:span 7}
+    .ci-span-8{grid-column:span 8}
+    .ci-span-12{grid-column:span 12}
+
+    .ci-section-head{
+        display:flex;
+        justify-content:space-between;
+        align-items:flex-start;
+        gap:14px;
+        margin-bottom:16px;
+    }
+    .ci-section-title{
+        margin:0;
+        font-size:16px;
+        font-weight:900;
+        letter-spacing:-.02em;
+        color:#0f172a;
+    }
+    .ci-section-sub{
+        margin-top:5px;
+        color:#64748b;
+        font-size:11px;
+        line-height:1.55;
+    }
+    .ci-pill{
+        display:inline-flex;
+        align-items:center;
+        gap:6px;
+        padding:6px 10px;
+        border-radius:999px;
+        font-size:10px;
+        font-weight:900;
+        background:#eff6ff;
+        color:#1d4ed8;
+        border:1px solid #bfdbfe;
+        white-space:nowrap;
+    }
+    .ci-pill.green{background:#ecfdf5;color:#047857;border-color:#a7f3d0}
+    .ci-pill.orange{background:#fff7ed;color:#c2410c;border-color:#fed7aa}
+    .ci-pill.slate{background:#f8fafc;color:#475569;border-color:#e2e8f0}
+
+    .ci-profile{
+        display:grid;
+        grid-template-columns:auto 1fr;
+        gap:16px;
+        align-items:center;
+        padding:18px;
+        border-radius:22px;
+        background:
+            linear-gradient(135deg,#f8fafc,#ffffff),
+            radial-gradient(circle at top right,rgba(37,99,235,.10),transparent 30%);
+        border:1px solid #e5e7eb;
+    }
+    .ci-avatar{
+        width:62px;
+        height:62px;
+        border-radius:20px;
+        display:grid;
+        place-items:center;
+        color:#fff;
+        font-weight:900;
+        font-size:21px;
+        background:linear-gradient(135deg,#2563eb,#4f46e5);
+        box-shadow:0 14px 28px rgba(37,99,235,.24);
+    }
+    .ci-profile-name{
+        font-size:19px;
+        font-weight:900;
+        letter-spacing:-.03em;
+        margin:0 0 4px;
+    }
+    .ci-profile-meta{
+        color:#64748b;
+        font-size:12px;
+        line-height:1.55;
+        word-break:break-word;
+    }
+
+    .ci-metric-grid{
+        display:grid;
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:12px;
+        margin-top:16px;
+    }
+    .ci-mini{
+        border:1px solid #e5e7eb;
+        background:#fff;
+        border-radius:17px;
+        padding:14px;
+        min-height:76px;
+    }
+    .ci-mini-label{
+        font-size:9px;
+        color:#64748b;
+        letter-spacing:.08em;
+        text-transform:uppercase;
+        font-weight:900;
+        margin-bottom:7px;
+    }
+    .ci-mini-value{
+        font-size:14px;
+        font-weight:900;
+        color:#0f172a;
+        word-break:break-word;
+        line-height:1.35;
+    }
+
+    .ci-score{
+        display:grid;
+        grid-template-columns:1fr auto;
+        gap:18px;
+        align-items:center;
+        padding:20px;
+        border-radius:22px;
+        background:
+            radial-gradient(circle at 90% 10%,rgba(37,99,235,.14),transparent 30%),
+            linear-gradient(135deg,#eef2ff,#eff6ff 70%,#fff7ed);
+        border:1px solid #c7d2fe;
+    }
+    .ci-score h3{
+        margin:0 0 7px;
+        font-size:18px;
+        font-weight:900;
+        letter-spacing:-.02em;
+    }
+    .ci-score p{
+        margin:0;
+        color:#475569;
+        font-size:12px;
+        line-height:1.6;
+    }
+    .ci-score-ring{
+        --score:78;
+        width:108px;
+        height:108px;
+        border-radius:50%;
+        display:grid;
+        place-items:center;
+        background:
+            radial-gradient(circle at center,#fff 56%,transparent 57%),
+            conic-gradient(#2563eb 0 calc(var(--score) * 1%), #dbeafe calc(var(--score) * 1%) 100%);
+        flex:0 0 auto;
+        box-shadow:inset 0 0 0 1px rgba(37,99,235,.08),0 12px 28px rgba(37,99,235,.16);
+    }
+    .ci-score-ring span{
+        font-size:28px;
+        font-weight:900;
+        color:#1d4ed8;
+    }
+
+    .ci-bars{
+        display:grid;
+        gap:12px;
+        margin-top:16px;
+    }
+    .ci-bar-row{
+        display:grid;
+        grid-template-columns:160px 1fr auto;
+        gap:10px;
+        align-items:center;
+        font-size:11px;
+        color:#334155;
+    }
+    .ci-bar-track{
+        height:10px;
+        border-radius:999px;
+        background:#e5e7eb;
+        overflow:hidden;
+    }
+    .ci-bar-fill{
+        height:100%;
+        border-radius:999px;
+        background:linear-gradient(90deg,#2563eb,#60a5fa);
+        animation:ciBar .9s ease both;
+    }
+
+    .ci-chart-shell{
+        display:grid;
+        grid-template-columns:210px 1fr;
+        gap:18px;
+        align-items:center;
+    }
+    .ci-pie{
+        --identity:25%;
+        --source:50%;
+        --activity:75%;
+        width:190px;
+        height:190px;
+        border-radius:50%;
+        background:
+            conic-gradient(
+                #2563eb 0 var(--identity),
+                #22c55e var(--identity) var(--source),
+                #f59e0b var(--source) var(--activity),
+                #8b5cf6 var(--activity) 100%
+            );
+        display:grid;
+        place-items:center;
+        box-shadow:0 18px 34px rgba(15,23,42,.12);
+        position:relative;
+    }
+    .ci-pie:after{
+        content:"";
+        width:112px;
+        height:112px;
+        background:#fff;
+        border-radius:50%;
+        box-shadow:inset 0 0 0 1px #e5e7eb;
+        position:absolute;
+    }
+    .ci-pie-center{
+        position:relative;
+        z-index:2;
+        text-align:center;
+    }
+    .ci-pie-center strong{
+        display:block;
+        font-size:24px;
+        color:#0f172a;
+        font-weight:900;
+        line-height:1;
+    }
+    .ci-pie-center span{
+        display:block;
+        margin-top:5px;
+        font-size:10px;
+        color:#64748b;
+        font-weight:800;
+        text-transform:uppercase;
+        letter-spacing:.06em;
+    }
+    .ci-legend{
+        display:grid;
+        gap:10px;
+    }
+    .ci-legend-item{
+        display:grid;
+        grid-template-columns:auto 1fr auto;
+        gap:10px;
+        align-items:center;
+        padding:10px 12px;
+        border:1px solid #e5e7eb;
+        border-radius:14px;
+        background:#fff;
+        font-size:12px;
+        color:#334155;
+        font-weight:800;
+    }
+    .ci-dot{
+        width:10px;
+        height:10px;
+        border-radius:50%;
+        background:#2563eb;
+    }
+    .ci-dot.green{background:#22c55e}
+    .ci-dot.orange{background:#f59e0b}
+    .ci-dot.purple{background:#8b5cf6}
+
+    .ci-timeline{
+        position:relative;
+        display:grid;
+        gap:14px;
+        padding-left:6px;
+    }
+    .ci-step{
+        position:relative;
+        display:grid;
+        grid-template-columns:42px 1fr;
+        gap:14px;
+        align-items:flex-start;
+    }
+    .ci-step:not(:last-child)::after{
+        content:"";
+        position:absolute;
+        left:20px;
+        top:44px;
+        bottom:-14px;
+        width:2px;
+        background:linear-gradient(180deg,#bfdbfe,#e5e7eb);
+    }
+    .ci-step-num{
+        position:relative;
+        z-index:1;
+        width:42px;
+        height:42px;
+        display:grid;
+        place-items:center;
+        border-radius:15px;
+        background:#eff6ff;
+        color:#1d4ed8;
+        border:1px solid #bfdbfe;
+        font-weight:900;
+        box-shadow:0 8px 20px rgba(37,99,235,.12);
+    }
+    .ci-step-body{
+        border:1px solid #e5e7eb;
+        border-radius:18px;
+        padding:14px;
+        background:#fff;
+    }
+    .ci-step-title{
+        font-size:13px;
+        font-weight:900;
+        color:#0f172a;
+        margin-bottom:5px;
+    }
+    .ci-step-desc{
+        color:#64748b;
+        font-size:11px;
+        line-height:1.58;
+        word-break:break-word;
+    }
+
+    .ci-activity{
+        display:grid;
+        gap:12px;
+        max-height:520px;
+        overflow:auto;
+        padding-right:4px;
+    }
+    .ci-activity-item{
+        border:1px solid #e5e7eb;
+        border-radius:18px;
+        background:#fff;
+        padding:14px;
+        transition:border-color .2s ease,transform .2s ease;
+    }
+    .ci-activity-item:hover{border-color:#bfdbfe;transform:translateX(2px)}
+    .ci-activity-top{
+        display:flex;
+        justify-content:space-between;
+        gap:12px;
+        align-items:flex-start;
+    }
+    .ci-activity-title{
+        margin-top:7px;
+        font-weight:900;
+        color:#0f172a;
+        font-size:13px;
+    }
+    .ci-activity-body{
+        margin-top:8px;
+        color:#64748b;
+        font-size:11px;
+        line-height:1.58;
+        max-height:84px;
+        overflow:hidden;
+    }
+
+    .ci-table-wrap{
+        overflow:auto;
+        border-top:1px solid #e5e7eb;
+    }
+    .ci-table{
+        width:100%;
+        min-width:900px;
+        border-collapse:collapse;
+        font-size:12px;
+    }
+    .ci-table th{
+        background:#f8fafc;
+        text-align:left;
+        padding:13px 16px;
+        color:#475569;
+        font-size:10px;
+        text-transform:uppercase;
+        letter-spacing:.08em;
+        font-weight:900;
+        border-bottom:1px solid #e5e7eb;
+    }
+    .ci-table td{
+        padding:15px 16px;
+        border-bottom:1px solid #f1f5f9;
+        color:#334155;
+        vertical-align:top;
+    }
+    .ci-table strong{color:#0f172a;font-weight:900}
+    .ci-empty{
+        padding:18px;
+        border:1px dashed #cbd5e1;
+        border-radius:16px;
+        background:#f8fafc;
+        color:#64748b;
+        font-weight:800;
+        font-size:12px;
+        line-height:1.55;
+    }
+    .ci-alert{
+        border:1px solid #fed7aa;
+        background:linear-gradient(135deg,#fff7ed,#fffbeb);
+        color:#9a3412;
+        border-radius:18px;
+        padding:14px 16px;
+        line-height:1.48;
+        font-weight:800;
+        font-size:12px;
+    }
+    .ci-actions{
+        display:flex;
+        flex-wrap:wrap;
+        gap:10px;
+        margin-top:14px;
+    }
+    .ci-btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:8px;
+        min-height:38px;
+        padding:9px 13px;
+        border-radius:13px;
+        border:1px solid #bfdbfe;
+        background:#eff6ff;
+        color:#1d4ed8;
+        font-weight:900;
+        text-decoration:none;
+        font-size:11px;
+    }
+    .ci-btn.primary{
+        background:#2563eb;
+        border-color:#2563eb;
+        color:#fff;
+        box-shadow:0 10px 24px rgba(37,99,235,.22);
+    }
+
+    @media(max-width:1080px){
+        .ci-chart-shell{grid-template-columns:1fr}
+        .ci-pie{margin:auto}
+    }
+    @media(max-width:980px){
+        .ci-page{padding:16px}
+        .ci-hero-top{flex-direction:column}
+        .ci-hero-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+        .ci-span-4,.ci-span-5,.ci-span-6,.ci-span-7,.ci-span-8,.ci-span-12{grid-column:span 12}
+        .ci-bar-row{grid-template-columns:1fr}
+    }
+    @media(max-width:620px){
+        .ci-hero-metrics,.ci-metric-grid{grid-template-columns:1fr}
+        .ci-score{grid-template-columns:1fr}
+        .ci-score-ring{margin:auto}
+    }
+</style>
+
+<div class="ci-page">
+{% if contact %}
+    {% set p = contact.properties|default({}) %}
+    {% set emailValue = attribute(p,'email')|default('') %}
+    {% set firstNameValue = attribute(p,'firstname')|default('') %}
+    {% set lastNameValue = attribute(p,'lastname')|default('') %}
+    {% set contactName = (firstNameValue ~ ' ' ~ lastNameValue)|trim %}
+    {% set companyValue = attribute(p,'company')|default('') %}
+    {% set lifecycleValue = attribute(p,'lifecyclestage')|default('') %}
+    {% set leadStatusValue = attribute(p,'hs_lead_status')|default('') %}
+    {% set jobTitleValue = attribute(p,'jobtitle')|default('') %}
+    {% set phoneValue = attribute(p,'phone')|default(attribute(p,'mobilephone')|default('')) %}
+    {% set createdValue = attribute(p,'createdate')|default('') %}
+    {% set modifiedValue = attribute(p,'lastmodifieddate')|default('') %}
+    {% set scoreValue = attribute(p,'hubspotscore')|default('') %}
+    {% set sourceValue = attribute(p,'hs_analytics_source')|default('') %}
+    {% set sourceDrill1 = attribute(p,'hs_analytics_source_data_1')|default('') %}
+    {% set sourceDrill2 = attribute(p,'hs_analytics_source_data_2')|default('') %}
+    {% set latestSource = attribute(p,'hs_latest_source')|default('') %}
+    {% set latestSource1 = attribute(p,'hs_latest_source_data_1')|default('') %}
+    {% set latestSource2 = attribute(p,'hs_latest_source_data_2')|default('') %}
+    {% set matomoVisitorValue = attribute(p,'matomo_visitor_id')|default('') %}
+    {% set signalAtlasPageValue = attribute(p,'signalatlas_page_url')|default('') %}
+    {% set utmSourceValue = attribute(p,'signalatlas_utm_source')|default('') %}
+    {% set utmCampaignValue = attribute(p,'signalatlas_utm_campaign')|default('') %}
+    {% set dealCount = deals.total|default(0) %}
+    {% set activityCount = activities.total|default(0) %}
+    {% set companyCount = companies.total|default(0) %}
+    {% set confidence = 54 %}
+    {% if dealCount > 0 and activityCount > 0 and (sourceValue or latestSource or utmSourceValue or signalAtlasPageValue) %}
+        {% set confidence = 94 %}
+    {% elseif dealCount > 0 and activityCount > 0 %}
+        {% set confidence = 88 %}
+    {% elseif activityCount > 0 %}
+        {% set confidence = 76 %}
+    {% elseif sourceValue or latestSource or utmSourceValue or signalAtlasPageValue %}
+        {% set confidence = 68 %}
+    {% endif %}
+
+    <div class="ci-shell">
+        <div class="ci-hero">
+            <div class="ci-hero-top">
+                <div>
+                    <div class="ci-kicker">Enterprise HubSpot Journey Intelligence</div>
+                    <h2 class="ci-title">Contact Revenue Journey</h2>
+                    <p class="ci-subtitle">
+                        Executive-grade journey view built from HubSpot contact profile, source attribution, associated company,
+                        CRM engagement coverage, and deal/revenue records. Designed for clean leadership visibility without noisy placeholders.
+                    </p>
+                </div>
+                <a class="ci-back" href="javascript:history.back()">← Back to Dashboard</a>
+            </div>
+
+            <div class="ci-hero-metrics">
+                <div class="ci-hero-card">
+                    <div class="ci-hero-label">Contact</div>
+                    <div class="ci-hero-value">{{ contactName ?: emailValue }}</div>
+                </div>
+                <div class="ci-hero-card">
+                    <div class="ci-hero-label">Account</div>
+                    <div class="ci-hero-value">{{ companyValue ?: (companyCount > 0 ? 'Company linked' : 'No company linked') }}</div>
+                </div>
+                <div class="ci-hero-card">
+                    <div class="ci-hero-label">Lifecycle</div>
+                    <div class="ci-hero-value">{{ lifecycleValue ?: 'Not captured' }}</div>
+                </div>
+                <div class="ci-hero-card">
+                    <div class="ci-hero-label">Engagement / Revenue</div>
+                    <div class="ci-hero-value">{{ activityCount }} events · {{ dealCount }} deals</div>
+                </div>
+            </div>
+        </div>
+
+        {% if error %}<div class="ci-alert">{{ error }}</div>{% endif %}
+
+        <div class="ci-grid">
+            <div class="ci-card ci-span-4">
+                <div class="ci-card-pad">
+                    <div class="ci-section-head">
+                        <div>
+                            <h3 class="ci-section-title">Contact Profile</h3>
+                            <div class="ci-section-sub">Identity pulled directly from HubSpot using the contact email.</div>
+                        </div>
+                        <span class="ci-pill green">Matched</span>
+                    </div>
+
+                    <div class="ci-profile">
+                        <div class="ci-avatar">{{ firstNameValue|default('C')|slice(0,1)|upper }}{{ lastNameValue|default('')|slice(0,1)|upper }}</div>
+                        <div>
+                            <h3 class="ci-profile-name">{{ contactName ?: emailValue }}</h3>
+                            <div class="ci-profile-meta">{{ emailValue }}</div>
+                            {% if jobTitleValue %}<div class="ci-profile-meta">{{ jobTitleValue }}</div>{% endif %}
+                            {% if phoneValue %}<div class="ci-profile-meta">{{ phoneValue }}</div>{% endif %}
+                        </div>
+                    </div>
+
+                    <div class="ci-metric-grid">
+                        <div class="ci-mini"><div class="ci-mini-label">Created</div><div class="ci-mini-value">{{ createdValue ?: 'Not captured' }}</div></div>
+                        <div class="ci-mini"><div class="ci-mini-label">Updated</div><div class="ci-mini-value">{{ modifiedValue ?: 'Not captured' }}</div></div>
+                        <div class="ci-mini"><div class="ci-mini-label">Lead Status</div><div class="ci-mini-value">{{ leadStatusValue ?: 'Not captured' }}</div></div>
+                        <div class="ci-mini"><div class="ci-mini-label">HubSpot Score</div><div class="ci-mini-value">{{ scoreValue ?: 'Not captured' }}</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ci-card ci-span-8">
+                <div class="ci-card-pad">
+                    <div class="ci-section-head">
+                        <div>
+                            <h3 class="ci-section-title">Revenue Readiness Snapshot</h3>
+                            <div class="ci-section-sub">Confidence increases when source, activity, company, and deal coverage are available.</div>
+                        </div>
+                        <span class="ci-pill orange">Live CRM Intelligence</span>
+                    </div>
+
+                    <div class="ci-score">
+                        <div>
+                            <h3>Sales follow-up confidence</h3>
+                            <p>
+                                This score reflects the usable CRM evidence available for this contact. It does not create fake data.
+                                Missing activity scopes are handled safely and will not break the journey page.
+                            </p>
+                        </div>
+                        <div class="ci-score-ring" style="--score:{{ confidence }}"><span>{{ confidence }}</span></div>
+                    </div>
+
+                    <div class="ci-bars">
+                        <div class="ci-bar-row">
+                            <strong>Identity Match</strong>
+                            <div class="ci-bar-track"><div class="ci-bar-fill" style="width:100%"></div></div>
+                            <span>Email</span>
+                        </div>
+                        <div class="ci-bar-row">
+                            <strong>Attribution Coverage</strong>
+                            <div class="ci-bar-track"><div class="ci-bar-fill" style="width:{% if sourceValue or latestSource or utmSourceValue or signalAtlasPageValue %}82{% else %}20{% endif %}%"></div></div>
+                            <span>{% if sourceValue or latestSource or utmSourceValue or signalAtlasPageValue %}Available{% else %}Limited{% endif %}</span>
+                        </div>
+                        <div class="ci-bar-row">
+                            <strong>Activity Coverage</strong>
+                            <div class="ci-bar-track"><div class="ci-bar-fill" style="width:{% if activityCount > 5 %}92{% elseif activityCount > 0 %}62{% else %}18{% endif %}%"></div></div>
+                            <span>{{ activityCount }} events</span>
+                        </div>
+                        <div class="ci-bar-row">
+                            <strong>Deal Association</strong>
+                            <div class="ci-bar-track"><div class="ci-bar-fill" style="width:{% if dealCount > 0 %}86{% else %}18{% endif %}%"></div></div>
+                            <span>{% if dealCount > 0 %}Linked{% else %}No deal yet{% endif %}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ci-card ci-span-6">
+                <div class="ci-card-pad">
+                    <div class="ci-section-head">
+                        <div>
+                            <h3 class="ci-section-title">Journey Composition</h3>
+                            <div class="ci-section-sub">Visual split of evidence available for this contact journey.</div>
+                        </div>
+                        <span class="ci-pill">Pie View</span>
+                    </div>
+
+                    <div class="ci-chart-shell">
+                        <div class="ci-pie">
+                            <div class="ci-pie-center">
+                                <strong>{{ confidence }}</strong>
+                                <span>Confidence</span>
+                            </div>
+                        </div>
+                        <div class="ci-legend">
+                            <div class="ci-legend-item"><span class="ci-dot"></span><span>Identity match</span><strong>25%</strong></div>
+                            <div class="ci-legend-item"><span class="ci-dot green"></span><span>Source attribution</span><strong>{% if sourceValue or latestSource or utmSourceValue or signalAtlasPageValue %}25%{% else %}Limited{% endif %}</strong></div>
+                            <div class="ci-legend-item"><span class="ci-dot orange"></span><span>CRM activity</span><strong>{% if activityCount > 0 %}25%{% else %}Limited{% endif %}</strong></div>
+                            <div class="ci-legend-item"><span class="ci-dot purple"></span><span>Revenue/deal link</span><strong>{% if dealCount > 0 %}25%{% else %}No deal{% endif %}</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ci-card ci-span-6">
+                <div class="ci-card-pad">
+                    <div class="ci-section-head">
+                        <div>
+                            <h3 class="ci-section-title">Source & Attribution Intelligence</h3>
+                            <div class="ci-section-sub">HubSpot original/latest source plus SignalAtlas custom fields where available.</div>
+                        </div>
+                        <span class="ci-pill slate">Attribution</span>
+                    </div>
+
+                    <div class="ci-metric-grid">
+                        <div class="ci-mini"><div class="ci-mini-label">Original Source</div><div class="ci-mini-value">{{ sourceValue ?: 'Not captured' }}</div></div>
+                        <div class="ci-mini"><div class="ci-mini-label">Original Drill-down</div><div class="ci-mini-value">{{ sourceDrill1 ?: 'Not captured' }}{% if sourceDrill2 %} / {{ sourceDrill2 }}{% endif %}</div></div>
+                        <div class="ci-mini"><div class="ci-mini-label">Latest Source</div><div class="ci-mini-value">{{ latestSource ?: 'Not captured' }}</div></div>
+                        <div class="ci-mini"><div class="ci-mini-label">Latest Drill-down</div><div class="ci-mini-value">{{ latestSource1 ?: 'Not captured' }}{% if latestSource2 %} / {{ latestSource2 }}{% endif %}</div></div>
+                        <div class="ci-mini"><div class="ci-mini-label">Matomo Visitor ID</div><div class="ci-mini-value">{{ matomoVisitorValue ?: 'Not linked' }}</div></div>
+                        <div class="ci-mini"><div class="ci-mini-label">SignalAtlas Page</div><div class="ci-mini-value">{{ signalAtlasPageValue ?: 'Not linked' }}</div></div>
+                        <div class="ci-mini"><div class="ci-mini-label">UTM Source</div><div class="ci-mini-value">{{ utmSourceValue ?: 'Not captured' }}</div></div>
+                        <div class="ci-mini"><div class="ci-mini-label">UTM Campaign</div><div class="ci-mini-value">{{ utmCampaignValue ?: 'Not captured' }}</div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ci-card ci-span-5">
+                <div class="ci-card-pad">
+                    <div class="ci-section-head">
+                        <div>
+                            <h3 class="ci-section-title">Journey Timeline</h3>
+                            <div class="ci-section-sub">Clean full-funnel sequence without Unknown placeholder rows.</div>
+                        </div>
+                    </div>
+
+                    <div class="ci-timeline">
+                        <div class="ci-step">
+                            <div class="ci-step-num">1</div>
+                            <div class="ci-step-body">
+                                <div class="ci-step-title">Contact matched in HubSpot</div>
+                                <div class="ci-step-desc">{{ emailValue }}{% if createdValue %}<br>Created: {{ createdValue }}{% endif %}</div>
+                            </div>
+                        </div>
+
+                        {% if sourceValue or latestSource or utmSourceValue or signalAtlasPageValue %}
+                        <div class="ci-step">
+                            <div class="ci-step-num">2</div>
+                            <div class="ci-step-body">
+                                <div class="ci-step-title">Source evidence available</div>
+                                <div class="ci-step-desc">
+                                    {% if sourceValue %}Original: {{ sourceValue }}<br>{% endif %}
+                                    {% if latestSource %}Latest: {{ latestSource }}<br>{% endif %}
+                                    {% if signalAtlasPageValue %}Page: {{ signalAtlasPageValue }}{% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        {% if activityCount > 0 %}
+                        <div class="ci-step">
+                            <div class="ci-step-num">3</div>
+                            <div class="ci-step-body">
+                                <div class="ci-step-title">CRM engagement history found</div>
+                                <div class="ci-step-desc">{{ activityCount }} HubSpot engagement event(s) loaded.</div>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="ci-step">
+                            <div class="ci-step-num">3</div>
+                            <div class="ci-step-body">
+                                <div class="ci-step-title">CRM engagement not available</div>
+                                <div class="ci-step-desc">No activity records are available with the current token permissions or contact associations.</div>
+                            </div>
+                        </div>
+                        {% endif %}
+
+                        <div class="ci-step">
+                            <div class="ci-step-num">4</div>
+                            <div class="ci-step-body">
+                                <div class="ci-step-title">Revenue association</div>
+                                <div class="ci-step-desc">{{ dealCount }} deal(s) associated with this contact.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ci-card ci-span-7">
+                <div class="ci-card-pad">
+                    <div class="ci-section-head">
+                        <div>
+                            <h3 class="ci-section-title">Recent HubSpot Activities</h3>
+                            <div class="ci-section-sub">Emails, calls, meetings, notes, and tasks when available through API permissions.</div>
+                        </div>
+                        <span class="ci-pill green">{{ activityCount }} Events</span>
+                    </div>
+
+                    <div class="ci-activity">
+                        {% for activity in activities.results %}
+                            <div class="ci-activity-item">
+                                <div class="ci-activity-top">
+                                    <div>
+                                        <span class="ci-pill">{{ activity.type }}</span>
+                                        <div class="ci-activity-title">{{ activity.title ?: activity.type }}</div>
+                                    </div>
+                                    <div class="ci-section-sub">{{ activity.timestamp }}</div>
+                                </div>
+                                {% if activity.body %}<div class="ci-activity-body">{{ activity.body|slice(0,360) }}</div>{% endif %}
+                                {% if activity.status %}<div style="margin-top:8px"><span class="ci-pill orange">{{ activity.status }}</span></div>{% endif %}
+                            </div>
+                        {% else %}
+                            <div class="ci-empty">
+                                No CRM engagement activity is available for this contact yet. If activity scopes are not visible in HubSpot,
+                                keep the dashboard read-only and use contact/company/deal/source data as the reliable first phase.
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="ci-card ci-span-12">
+                <div class="ci-card-pad">
+                    <div class="ci-section-head">
+                        <div>
+                            <h3 class="ci-section-title">Associated Deals</h3>
+                            <div class="ci-section-sub">Revenue records connected to this HubSpot contact.</div>
+                        </div>
+                        <span class="ci-pill">{{ dealCount }} Deal(s)</span>
+                    </div>
+                    {% if deals.error is defined %}<div class="ci-alert">{{ deals.error }}</div>{% endif %}
+                </div>
+
+                <div class="ci-table-wrap">
+                    <table class="ci-table">
+                        <thead>
+                            <tr>
+                                <th>Deal Name</th>
+                                <th>Stage</th>
+                                <th>Closed Won</th>
+                                <th>Amount</th>
+                                <th>Close Date</th>
+                                <th>Created</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for deal in deals.results %}
+                                {% set dp = deal.properties|default({}) %}
+                                <tr>
+                                    <td><strong>{{ attribute(dp,'dealname')|default('Deal') }}</strong></td>
+                                    <td><span class="ci-pill">{{ attribute(dp,'dealstage')|default('No stage') }}</span></td>
+                                    <td>{{ attribute(dp,'hs_is_closed_won')|default('No') }}</td>
+                                    <td><strong>{{ attribute(dp,'amount')|default('0') }}</strong></td>
+                                    <td>{{ attribute(dp,'closedate')|default('Not set') }}</td>
+                                    <td>{{ attribute(dp,'createdate')|default('Not captured') }}</td>
+                                </tr>
+                            {% else %}
+                                <tr><td colspan="6"><div class="ci-empty">No deal is associated with this contact yet.</div></td></tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+{% else %}
+    <div class="ci-alert">{{ error ?: 'No contact loaded.' }}</div>
+{% endif %}
+</div>

@@ -1,0 +1,34 @@
+name: Matomo Tests
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  push:
+    branches:
+      - main
+      - develop
+
+permissions:
+  contents: read
+
+jobs:
+  PHPTests:
+    runs-on: ubuntu-22.04
+    strategy:
+      fail-fast: false
+      matrix:
+        php: ['8.1', '8.3']
+        target: ['minimum_required_matomo', 'maximum_supported_matomo']
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+
+      - name: Run PHP tests
+        uses: matomo-org/github-action-tests@main
+        with:
+          plugin-name: 'CompanyFromIP'
+          php-version: ${{ matrix.php }}
+          test-type: 'PluginTests'
+          matomo-test-branch: ${{ matrix.target }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,7 @@
+{
+    "BotTracking": {
+        "PageUrl": "Dirección web de la página",
+        "NoDataHttpTrackingApi": "API de rastreo HTTP",
+        "SiteWithoutDataBackToMatomo": "Volver a Matomo"
+    }
+}

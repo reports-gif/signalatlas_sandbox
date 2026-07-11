@@ -1,0 +1,34 @@
+{
+    "name": "MicrosoftTeams",
+    "description": "Send Matomo reports and alerts to Microsoft Team channels, keeping your team informed and ready to act in real time.",
+    "version": "5.1.0",
+    "theme": false,
+    "require": {
+        "matomo": ">=5.7.0-alpha,<6.0.0-b1"
+    },
+    "authors": [
+        {
+            "name": "Matomo",
+            "email": "hello@matomo.org",
+            "homepage": "https://matomo.org"
+        }
+    ],
+    "support": {
+        "email": "hello@matomo.org",
+        "issues": "https://github.com/matomo-org/plugin-MicrosoftTeams/issues",
+        "forum": "https://forum.matomo.org",
+        "source": "https://github.com/matomo-org/plugin-MicrosoftTeams",
+        "wiki": "https://github.com/matomo-org/plugin-MicrosoftTeams/wiki"
+    },
+    "homepage": "",
+    "license": "GPL v3+",
+    "keywords": [
+        "Microsoft Teams",
+        "MicrosoftTeams",
+        "Microsoft",
+        "Teams",
+        "ScheduledReports",
+        "CustomAlerts"
+    ],
+    "category": "integration"
+}

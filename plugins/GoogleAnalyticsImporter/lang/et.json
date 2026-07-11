@@ -1,0 +1,10 @@
+{
+    "GoogleAnalyticsImporter": {
+        "Actions": "Tegevused",
+        "IsMobileApp": "Mobiilirakendus",
+        "None": "Mitte ükski",
+        "Optional": "Valikuline",
+        "Status": "Olek",
+        "StatusErroredName": "Viga"
+    }
+}

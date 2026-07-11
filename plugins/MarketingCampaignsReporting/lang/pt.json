@@ -1,0 +1,23 @@
+{
+    "MarketingCampaignsReporting": {
+        "CampaignId": "ID da campanha",
+        "CampaignIds": "Identificadores da campanha",
+        "CombinedKeywordContent": "Palavra-chave - conteúdo",
+        "CombinedSourceMedium": "Fonte - media",
+        "CombinedSourcesMediums": "Fonte da campanha - media",
+        "Content": "Conteúdo da campanha",
+        "Contents": "Conteúdos das campanhas",
+        "Group": "Grupo da campanha",
+        "Groups": "Grupos da campanha",
+        "Keyword": "Palavra-chave da campanha",
+        "Keywords": "Palavras-chave das campanhas",
+        "Medium": "Media da campanha",
+        "Mediums": "Media das campanhas",
+        "Name": "Nome da campanha",
+        "Names": "Nomes das campanhas",
+        "Placement": "Posicionamento da campanha",
+        "Placements": "Posicionamentos da campanha",
+        "Source": "Fonte da campanha",
+        "Sources": "Fontes das campanhas"
+    }
+}

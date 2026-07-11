@@ -1,0 +1,28 @@
+<?php
+
+/**
+ * Matomo - free/libre analytics platform
+ *
+ * @link    https://matomo.org
+ * @license http://www.gnu.org/licenses/gpl-3.0.html GPL v3 or later
+ *
+ */
+
+namespace Piwik\Plugins\MarketingCampaignsReporting\Reports;
+
+use Piwik\Plugin\ViewDataTable;
+use Piwik\Url;
+
+abstract class Base extends \Piwik\Plugin\Report
+{
+    protected function init()
+    {
+        $this->categoryId = 'Referrers_Referrers';
+        $this->onlineGuideUrl = Url::addCampaignParametersToMatomoLink('https://matomo.org/guide/reports/acquisition-and-marketing-channels/');
+    }
+
+    public function configureView(ViewDataTable $view)
+    {
+        $view->config->addTranslation('label', $this->dimension->getName());
+    }
+}

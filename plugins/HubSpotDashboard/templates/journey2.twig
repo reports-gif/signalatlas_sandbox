@@ -1,0 +1,118 @@
+<style>
+    .ci-page{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding:24px;max-width:1360px;margin:0 auto;color:#0f172a;background:linear-gradient(180deg,#f8fafc 0%,#fff 48%,#f8fafc 100%);border-radius:24px}.ci-page *{box-sizing:border-box}.ci-shell{display:grid;gap:18px}.ci-hero{position:relative;overflow:hidden;border:1px solid rgba(226,232,240,.9);border-radius:26px;padding:24px;background:linear-gradient(135deg,#08111f,#0f172a 60%,#172554);color:#fff;box-shadow:0 18px 48px rgba(15,23,42,.20)}.ci-hero:after{content:"";position:absolute;width:460px;height:460px;right:-210px;top:-220px;border-radius:50%;background:radial-gradient(circle,rgba(37,99,235,.48),rgba(37,99,235,0));pointer-events:none}.ci-hero-top{position:relative;z-index:1;display:flex;justify-content:space-between;gap:18px;align-items:flex-start}.ci-kicker{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border:1px solid rgba(147,197,253,.32);background:rgba(37,99,235,.16);color:#bfdbfe;border-radius:999px;font-size:12px;font-weight:850;letter-spacing:.04em;text-transform:uppercase}.ci-title{margin:14px 0 8px;font-size:clamp(28px,3vw,42px);line-height:1.05;letter-spacing:-.04em;font-weight:950}.ci-subtitle{margin:0;max-width:820px;color:#cbd5e1;font-size:14px;line-height:1.6}.ci-back{position:relative;z-index:2;display:inline-flex;align-items:center;gap:8px;padding:10px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.09);color:#fff;font-weight:850;text-decoration:none;white-space:nowrap}.ci-hero-metrics{position:relative;z-index:1;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:24px}.ci-hero-card{border:1px solid rgba(255,255,255,.14);background:rgba(255,255,255,.08);border-radius:18px;padding:15px}.ci-hero-label{font-size:11px;color:#bfdbfe;text-transform:uppercase;letter-spacing:.07em;font-weight:900;margin-bottom:8px}.ci-hero-value{font-size:17px;font-weight:900;color:#fff;word-break:break-word}.ci-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}.ci-card{border:1px solid #e5e7eb;background:rgba(255,255,255,.94);border-radius:22px;box-shadow:0 10px 30px rgba(15,23,42,.06);overflow:hidden}.ci-card-pad{padding:20px}.ci-span-4{grid-column:span 4}.ci-span-5{grid-column:span 5}.ci-span-7{grid-column:span 7}.ci-span-8{grid-column:span 8}.ci-span-12{grid-column:span 12}.ci-section-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px}.ci-section-title{margin:0;font-size:17px;font-weight:950;letter-spacing:-.02em;color:#0f172a}.ci-section-sub{margin-top:5px;color:#64748b;font-size:12px;line-height:1.5}.ci-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:999px;font-size:11px;font-weight:900;background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;white-space:nowrap}.ci-pill.green{background:#ecfdf5;color:#047857;border-color:#a7f3d0}.ci-pill.orange{background:#fff7ed;color:#c2410c;border-color:#fed7aa}.ci-profile{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;padding:18px;border-radius:20px;background:linear-gradient(135deg,#f8fafc,#fff);border:1px solid #e5e7eb}.ci-avatar{width:58px;height:58px;border-radius:18px;display:grid;place-items:center;color:#fff;font-weight:950;font-size:22px;background:linear-gradient(135deg,#2563eb,#4f46e5);box-shadow:0 12px 24px rgba(37,99,235,.22)}.ci-profile-name{font-size:20px;font-weight:950;letter-spacing:-.03em;margin:0 0 4px}.ci-profile-meta{color:#64748b;font-size:13px;line-height:1.5;word-break:break-word}.ci-metric-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:16px}.ci-mini{border:1px solid #e5e7eb;background:#fff;border-radius:16px;padding:14px}.ci-mini-label{font-size:10px;color:#64748b;letter-spacing:.07em;text-transform:uppercase;font-weight:950;margin-bottom:7px}.ci-mini-value{font-size:15px;font-weight:900;color:#0f172a;word-break:break-word}.ci-score{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px;border-radius:20px;background:linear-gradient(135deg,#eef2ff,#eff6ff);border:1px solid #c7d2fe}.ci-score-ring{width:98px;height:98px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at center,#fff 57%,transparent 58%),conic-gradient(#2563eb 0 78%,#dbeafe 78% 100%);flex:0 0 auto}.ci-score-ring span{font-size:28px;font-weight:950;color:#1d4ed8}.ci-score h3{margin:0 0 6px;font-size:18px;font-weight:950}.ci-score p{margin:0;color:#475569;font-size:13px;line-height:1.55}.ci-bars{display:grid;gap:12px;margin-top:16px}.ci-bar-row{display:grid;grid-template-columns:150px 1fr auto;gap:10px;align-items:center;font-size:12px;color:#334155}.ci-bar-track{height:9px;border-radius:999px;background:#e5e7eb;overflow:hidden}.ci-bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#2563eb,#60a5fa)}.ci-timeline{position:relative;display:grid;gap:14px;padding-left:6px}.ci-step{position:relative;display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:flex-start}.ci-step:not(:last-child)::after{content:"";position:absolute;left:19px;top:42px;bottom:-14px;width:2px;background:linear-gradient(180deg,#bfdbfe,#e5e7eb)}.ci-step-num{position:relative;z-index:1;width:40px;height:40px;display:grid;place-items:center;border-radius:14px;background:#eff6ff;color:#1d4ed8;border:1px solid #bfdbfe;font-weight:950}.ci-step-body{border:1px solid #e5e7eb;border-radius:17px;padding:14px;background:#fff}.ci-step-title{font-size:14px;font-weight:950;color:#0f172a;margin-bottom:5px}.ci-step-desc{color:#64748b;font-size:12px;line-height:1.55;word-break:break-word}.ci-table-wrap{overflow:auto;border-top:1px solid #e5e7eb}.ci-table{width:100%;min-width:860px;border-collapse:collapse;font-size:13px}.ci-table th{background:#f8fafc;text-align:left;padding:13px 16px;color:#475569;font-size:11px;text-transform:uppercase;letter-spacing:.07em;font-weight:950;border-bottom:1px solid #e5e7eb}.ci-table td{padding:15px 16px;border-bottom:1px solid #f1f5f9;color:#334155;vertical-align:top}.ci-table strong{color:#0f172a;font-weight:900}.ci-empty{padding:18px;border:1px dashed #cbd5e1;border-radius:16px;background:#f8fafc;color:#64748b;font-weight:750}.ci-alert{border:1px solid #fed7aa;background:linear-gradient(135deg,#fff7ed,#fffbeb);color:#9a3412;border-radius:18px;padding:14px 16px;line-height:1.45;font-weight:700}.ci-activity{display:grid;gap:12px}.ci-activity-item{border:1px solid #e5e7eb;border-radius:18px;background:#fff;padding:14px}.ci-activity-top{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.ci-activity-title{font-weight:950;color:#0f172a;font-size:14px}.ci-activity-body{margin-top:8px;color:#64748b;font-size:12px;line-height:1.55;max-height:80px;overflow:hidden}.ci-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}.ci-btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:38px;padding:9px 13px;border-radius:12px;border:1px solid #bfdbfe;background:#eff6ff;color:#1d4ed8;font-weight:900;text-decoration:none;font-size:12px}.ci-btn.primary{background:#2563eb;border-color:#2563eb;color:#fff;box-shadow:0 10px 24px rgba(37,99,235,.22)}@media(max-width:980px){.ci-page{padding:16px}.ci-hero-top{flex-direction:column}.ci-hero-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.ci-span-4,.ci-span-5,.ci-span-7,.ci-span-8,.ci-span-12{grid-column:span 12}.ci-bar-row{grid-template-columns:1fr}}@media(max-width:620px){.ci-hero-metrics,.ci-metric-grid{grid-template-columns:1fr}.ci-score{flex-direction:column;align-items:flex-start}}
+</style>
+
+<div class="ci-page">
+{% if contact %}
+    {% set p = contact.properties|default({}) %}
+    {% set emailValue = attribute(p,'email')|default('') %}
+    {% set firstNameValue = attribute(p,'firstname')|default('') %}
+    {% set lastNameValue = attribute(p,'lastname')|default('') %}
+    {% set contactName = (firstNameValue ~ ' ' ~ lastNameValue)|trim %}
+    {% set companyValue = attribute(p,'company')|default('') %}
+    {% set lifecycleValue = attribute(p,'lifecyclestage')|default('') %}
+    {% set leadStatusValue = attribute(p,'hs_lead_status')|default('') %}
+    {% set jobTitleValue = attribute(p,'jobtitle')|default('') %}
+    {% set phoneValue = attribute(p,'phone')|default(attribute(p,'mobilephone')|default('')) %}
+    {% set createdValue = attribute(p,'createdate')|default('') %}
+    {% set modifiedValue = attribute(p,'lastmodifieddate')|default('') %}
+    {% set sourceValue = attribute(p,'hs_analytics_source')|default('') %}
+    {% set sourceDrill1 = attribute(p,'hs_analytics_source_data_1')|default('') %}
+    {% set sourceDrill2 = attribute(p,'hs_analytics_source_data_2')|default('') %}
+    {% set latestSource = attribute(p,'hs_latest_source')|default('') %}
+    {% set latestSource1 = attribute(p,'hs_latest_source_data_1')|default('') %}
+    {% set latestSource2 = attribute(p,'hs_latest_source_data_2')|default('') %}
+    {% set matomoVisitorValue = attribute(p,'matomo_visitor_id')|default('') %}
+    {% set signalAtlasPageValue = attribute(p,'signalatlas_page_url')|default('') %}
+    {% set utmSourceValue = attribute(p,'signalatlas_utm_source')|default('') %}
+    {% set utmCampaignValue = attribute(p,'signalatlas_utm_campaign')|default('') %}
+    {% set dealCount = deals.total|default(0) %}
+    {% set activityCount = activities.total|default(0) %}
+    {% set companyCount = companies.total|default(0) %}
+
+    <div class="ci-shell">
+        <div class="ci-hero">
+            <div class="ci-hero-top">
+                <div>
+                    <div class="ci-kicker">HubSpot Live Contact Intelligence</div>
+                    <h2 class="ci-title">Contact Journey Analytics</h2>
+                    <p class="ci-subtitle">Live journey built from HubSpot contact properties, source attribution, associated companies, deals, and CRM activities such as emails, calls, meetings, notes, and tasks.</p>
+                </div>
+                <a class="ci-back" href="javascript:history.back()">Back to Dashboard</a>
+            </div>
+            <div class="ci-hero-metrics">
+                <div class="ci-hero-card"><div class="ci-hero-label">Contact</div><div class="ci-hero-value">{{ contactName ?: emailValue }}</div></div>
+                <div class="ci-hero-card"><div class="ci-hero-label">Company</div><div class="ci-hero-value">{{ companyValue ?: (companyCount > 0 ? 'Associated company found' : 'Not captured') }}</div></div>
+                <div class="ci-hero-card"><div class="ci-hero-label">Lifecycle</div><div class="ci-hero-value">{{ lifecycleValue ?: 'Not captured' }}</div></div>
+                <div class="ci-hero-card"><div class="ci-hero-label">Activities / Deals</div><div class="ci-hero-value">{{ activityCount }} activities · {{ dealCount }} deals</div></div>
+            </div>
+        </div>
+
+        {% if error %}<div class="ci-alert">{{ error }}</div>{% endif %}
+
+        <div class="ci-grid">
+            <div class="ci-card ci-span-4"><div class="ci-card-pad">
+                <div class="ci-section-head"><div><h3 class="ci-section-title">Contact Profile</h3><div class="ci-section-sub">Identity pulled directly by email from HubSpot.</div></div><span class="ci-pill green">Email matched</span></div>
+                <div class="ci-profile"><div class="ci-avatar">{{ firstNameValue|default('C')|slice(0,1)|upper }}{{ lastNameValue|default('')|slice(0,1)|upper }}</div><div><h3 class="ci-profile-name">{{ contactName ?: emailValue }}</h3><div class="ci-profile-meta">{{ emailValue }}</div>{% if jobTitleValue %}<div class="ci-profile-meta">{{ jobTitleValue }}</div>{% endif %}{% if phoneValue %}<div class="ci-profile-meta">{{ phoneValue }}</div>{% endif %}</div></div>
+                <div class="ci-metric-grid">
+                    <div class="ci-mini"><div class="ci-mini-label">Created</div><div class="ci-mini-value">{{ createdValue ?: 'Not captured' }}</div></div>
+                    <div class="ci-mini"><div class="ci-mini-label">Updated</div><div class="ci-mini-value">{{ modifiedValue ?: 'Not captured' }}</div></div>
+                    <div class="ci-mini"><div class="ci-mini-label">Lead Status</div><div class="ci-mini-value">{{ leadStatusValue ?: 'Not captured' }}</div></div>
+                    <div class="ci-mini"><div class="ci-mini-label">HubSpot Score</div><div class="ci-mini-value">{{ attribute(p,'hubspotscore')|default('Not captured') }}</div></div>
+                </div>
+            </div></div>
+
+            <div class="ci-card ci-span-8"><div class="ci-card-pad">
+                <div class="ci-section-head"><div><h3 class="ci-section-title">Revenue Readiness Snapshot</h3><div class="ci-section-sub">Score uses available HubSpot data. No placeholder records are shown.</div></div><span class="ci-pill orange">Live CRM view</span></div>
+                <div class="ci-score"><div><h3>Sales follow-up confidence</h3><p>Confidence improves when source fields, lifecycle, recent activities, and deal associations are available for the contact.</p></div><div class="ci-score-ring"><span>{% if dealCount > 0 and activityCount > 0 %}91{% elseif activityCount > 0 %}78{% else %}54{% endif %}</span></div></div>
+                <div class="ci-bars">
+                    <div class="ci-bar-row"><strong>Identity Match</strong><div class="ci-bar-track"><div class="ci-bar-fill" style="width:100%"></div></div><span>Email</span></div>
+                    <div class="ci-bar-row"><strong>Activity Coverage</strong><div class="ci-bar-track"><div class="ci-bar-fill" style="width:{% if activityCount > 5 %}90{% elseif activityCount > 0 %}60{% else %}18{% endif %}%"></div></div><span>{{ activityCount }} events</span></div>
+                    <div class="ci-bar-row"><strong>Deal Association</strong><div class="ci-bar-track"><div class="ci-bar-fill" style="width:{% if dealCount > 0 %}82{% else %}18{% endif %}%"></div></div><span>{% if dealCount > 0 %}Linked{% else %}No deal yet{% endif %}</span></div>
+                </div>
+            </div></div>
+
+            <div class="ci-card ci-span-12"><div class="ci-card-pad">
+                <div class="ci-section-head"><div><h3 class="ci-section-title">Source & Attribution Intelligence</h3><div class="ci-section-sub">HubSpot original/latest source + SignalAtlas custom fields where available.</div></div><span class="ci-pill">Attribution</span></div>
+                <div class="ci-metric-grid">
+                    <div class="ci-mini"><div class="ci-mini-label">Original Source</div><div class="ci-mini-value">{{ sourceValue ?: 'Not captured' }}</div></div>
+                    <div class="ci-mini"><div class="ci-mini-label">Original Drill-down</div><div class="ci-mini-value">{{ sourceDrill1 ?: 'Not captured' }}{% if sourceDrill2 %} / {{ sourceDrill2 }}{% endif %}</div></div>
+                    <div class="ci-mini"><div class="ci-mini-label">Latest Source</div><div class="ci-mini-value">{{ latestSource ?: 'Not captured' }}</div></div>
+                    <div class="ci-mini"><div class="ci-mini-label">Latest Drill-down</div><div class="ci-mini-value">{{ latestSource1 ?: 'Not captured' }}{% if latestSource2 %} / {{ latestSource2 }}{% endif %}</div></div>
+                    <div class="ci-mini"><div class="ci-mini-label">Matomo Visitor ID</div><div class="ci-mini-value">{{ matomoVisitorValue ?: 'Not linked' }}</div></div>
+                    <div class="ci-mini"><div class="ci-mini-label">SignalAtlas Page</div><div class="ci-mini-value">{{ signalAtlasPageValue ?: 'Not linked' }}</div></div>
+                    <div class="ci-mini"><div class="ci-mini-label">UTM Source</div><div class="ci-mini-value">{{ utmSourceValue ?: 'Not captured' }}</div></div>
+                    <div class="ci-mini"><div class="ci-mini-label">UTM Campaign</div><div class="ci-mini-value">{{ utmCampaignValue ?: 'Not captured' }}</div></div>
+                </div>
+            </div></div>
+
+            <div class="ci-card ci-span-5"><div class="ci-card-pad">
+                <div class="ci-section-head"><div><h3 class="ci-section-title">Journey Timeline</h3><div class="ci-section-sub">Clean sales journey without unknown placeholder rows.</div></div></div>
+                <div class="ci-timeline">
+                    <div class="ci-step"><div class="ci-step-num">1</div><div class="ci-step-body"><div class="ci-step-title">Contact matched in HubSpot</div><div class="ci-step-desc">{{ emailValue }}{% if createdValue %}<br>Created: {{ createdValue }}{% endif %}</div></div></div>
+                    {% if sourceValue or latestSource or utmSourceValue or signalAtlasPageValue %}<div class="ci-step"><div class="ci-step-num">2</div><div class="ci-step-body"><div class="ci-step-title">Source evidence available</div><div class="ci-step-desc">{% if sourceValue %}Original: {{ sourceValue }}<br>{% endif %}{% if latestSource %}Latest: {{ latestSource }}<br>{% endif %}{% if signalAtlasPageValue %}Page: {{ signalAtlasPageValue }}{% endif %}</div></div></div>{% endif %}
+                    {% if activityCount > 0 %}<div class="ci-step"><div class="ci-step-num">3</div><div class="ci-step-body"><div class="ci-step-title">CRM engagement history found</div><div class="ci-step-desc">{{ activityCount }} HubSpot engagement event(s) loaded.</div></div></div>{% endif %}
+                    <div class="ci-step"><div class="ci-step-num">4</div><div class="ci-step-body"><div class="ci-step-title">Revenue association</div><div class="ci-step-desc">{{ dealCount }} deal(s) associated with this contact.</div></div></div>
+                </div>
+            </div></div>
+
+            <div class="ci-card ci-span-7"><div class="ci-card-pad">
+                <div class="ci-section-head"><div><h3 class="ci-section-title">Recent HubSpot Activities</h3><div class="ci-section-sub">Emails, calls, meetings, notes, and tasks associated with this contact.</div></div><span class="ci-pill green">{{ activityCount }} Events</span></div>
+                <div class="ci-activity">
+                    {% for activity in activities.results %}
+                        <div class="ci-activity-item"><div class="ci-activity-top"><div><span class="ci-pill">{{ activity.type }}</span><div class="ci-activity-title">{{ activity.title ?: activity.type }}</div></div><div class="ci-section-sub">{{ activity.timestamp }}</div></div>{% if activity.body %}<div class="ci-activity-body">{{ activity.body|slice(0,360) }}</div>{% endif %}{% if activity.status %}<div style="margin-top:8px"><span class="ci-pill orange">{{ activity.status }}</span></div>{% endif %}</div>
+                    {% else %}
+                        <div class="ci-empty">No CRM engagement activity is associated with this contact yet. When HubSpot logs emails, calls, meetings, notes, or tasks, they will appear here automatically.</div>
+                    {% endfor %}
+                </div>
+            </div></div>
+
+            <div class="ci-card ci-span-12"><div class="ci-card-pad">
+                <div class="ci-section-head"><div><h3 class="ci-section-title">Associated Deals</h3><div class="ci-section-sub">Revenue records connected to this HubSpot contact.</div></div><span class="ci-pill">{{ dealCount }} Deal(s)</span></div>{% if deals.error is defined %}<div class="ci-alert">{{ deals.error }}</div>{% endif %}
+            </div><div class="ci-table-wrap"><table class="ci-table"><thead><tr><th>Deal Name</th><th>Stage</th><th>Closed Won</th><th>Amount</th><th>Close Date</th><th>Created</th></tr></thead><tbody>{% for deal in deals.results %}{% set dp = deal.properties|default({}) %}<tr><td><strong>{{ attribute(dp,'dealname')|default('Deal') }}</strong></td><td><span class="ci-pill">{{ attribute(dp,'dealstage')|default('No stage') }}</span></td><td>{{ attribute(dp,'hs_is_closed_won')|default('No') }}</td><td><strong>{{ attribute(dp,'amount')|default('0') }}</strong></td><td>{{ attribute(dp,'closedate')|default('Not set') }}</td><td>{{ attribute(dp,'createdate')|default('Not captured') }}</td></tr>{% else %}<tr><td colspan="6"><div class="ci-empty">No deal is associated with this contact yet.</div></td></tr>{% endfor %}</tbody></table></div></div>
+        </div>
+    </div>
+{% else %}
+    <div class="ci-alert">{{ error ?: 'No contact loaded.' }}</div>
+{% endif %}
+</div>

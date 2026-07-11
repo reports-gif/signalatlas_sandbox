@@ -1,0 +1,32 @@
+{
+    "IP2Proxy": {
+        "Asn": "ASN",
+        "City": "By",
+        "Country": "Land",
+        "Device": "Enhet",
+        "Domain": "Domene",
+        "DownloadYourBinDatabase": "Last ned din gratis IP2Proxy-database fra %1$sIP2Location LITE%2$s-nettside. For mer nøyaktige resultater kan du bruke %3$sIP2Proxy Commercial%4$s-databasen.<br>Last opp BIN-databasen til <strong>/misc</strong>og sett inn den absolutte stien her.",
+        "FindBelowProxyDetailsReport": "Du finner mellomtjenerrapporten for i går nedenfor.",
+        "Hi": "Hei,",
+        "IP2ProxyBinDatabase": "BIN-database for IP2Proxy",
+        "Isp": "Internett-tjenesteleverandør",
+        "LastVisit": "Siste besøk",
+        "LastVisitDuration": "Varighet for siste besøk",
+        "LifeTimeOfCacheForResultsInWeeks": "Antallet uker resultatene som finnes må hurtiglagres.",
+        "NoOneVisitedWebsiteYesterday": "Ingen har besøkt nettsiden din siden i går …",
+        "NumberOfVisits": "Antall besøk",
+        "Proxy": "Mellomtjener",
+        "ProxyDetails": "Mellomtjen Details",
+        "ProxyDetailsReportSubject": "[%1$s] Din daglige rapport/mellomtjenerdetaljer",
+        "ProxyType": "Mellomtjenertype",
+        "ReferrerName": "Henvisernavn",
+        "ReferrerType": "Henvisertype",
+        "Region": "Region",
+        "SubscribeToEmailReport": "Abonner på e-postrapportene",
+        "ThanksForUsing": "Takk for at du bruker IP2-posisjonstjenesten.",
+        "Threat": "Trussel",
+        "Type": "Type",
+        "UsageType": "Brukstype",
+        "WantToReceiveDailyReport": "Jeg ønsker å motta daglige rapporter per e-post med mellomtjenerdetaljer som dem som har besøkt nettsidene mine."
+    }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "IpEnrichment",
+  "description": "IP enrichment plugin using IPinfo",
+  "version": "1.0.0",
+  "theme": false
+}

@@ -1,0 +1,34 @@
+{
+    "name": "CustomTheme",
+    "description": "Live theme editor for Matomo super-administrators. Control colours, typography, background image, and UI roundness — no code required. Changes apply instantly across the entire interface.",
+    "version": "1.0.0",
+    "theme": false,
+    "require": {
+        "matomo": ">=5.0.0-b1,<6.0.0-b1"
+    },
+    "authors": [
+        {
+            "name": "Ronan Chardonneau",
+            "email": "contact@ronan-chardonneau.fr",
+            "homepage": "https://ronan-chardonneau.fr"
+        }
+    ],
+    "support": {
+        "email": "contact@ronan-chardonneau.fr",
+        "issues": "https://github.com/Chardonneaur/CustomTheme/issues",
+        "source": "https://github.com/Chardonneaur/CustomTheme"
+    },
+    "homepage": "https://github.com/Chardonneaur/CustomTheme",
+    "license": "GPL v3+",
+    "keywords": [
+        "theme",
+        "design",
+        "colours",
+        "typography",
+        "branding",
+        "customisation",
+        "white-label",
+        "ui"
+    ],
+    "category": "customisation"
+}

@@ -1,0 +1,130 @@
+<style>
+    .journey-wrap { font-family: inherit; padding: 24px; max-width: 1100px; margin: 0 auto; }
+    .journey-header { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; margin-bottom:20px; border-bottom:1px solid #e5e7eb; padding-bottom:16px; }
+    .journey-title { margin:0; font-size:24px; color:#111827; }
+    .journey-sub { margin-top:6px; color:#6b7280; font-size:13px; }
+    .journey-back { color:#2563eb; text-decoration:none; font-weight:600; }
+    .journey-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; margin:18px 0; }
+    .journey-card { border:1px solid #e5e7eb; border-radius:10px; background:#fff; padding:14px; }
+    .journey-label { font-size:11px; text-transform:uppercase; letter-spacing:.04em; color:#6b7280; font-weight:700; margin-bottom:6px; }
+    .journey-value { font-size:15px; color:#111827; font-weight:600; word-break:break-word; }
+    .journey-section { margin-top:22px; }
+    .journey-section h3 { font-size:17px; margin-bottom:10px; color:#111827; }
+    .journey-alert { background:#fff7ed; border:1px solid #fed7aa; color:#9a3412; border-radius:8px; padding:12px; margin:14px 0; }
+    .journey-table-wrap { overflow:auto; border:1px solid #e5e7eb; border-radius:10px; }
+    .journey-table { width:100%; border-collapse:collapse; min-width:760px; font-size:13px; }
+    .journey-table th { background:#f9fafb; text-align:left; padding:10px; border-bottom:1px solid #e5e7eb; }
+    .journey-table td { padding:10px; border-bottom:1px solid #f3f4f6; }
+    .journey-badge { display:inline-block; padding:4px 8px; border-radius:999px; font-size:11px; font-weight:700; background:#f3f4f6; color:#6b7280; }
+    .journey-timeline { border-left:3px solid #dbeafe; margin-left:10px; padding-left:18px; }
+    .journey-step { margin:0 0 16px; position:relative; }
+    .journey-step:before { content:''; width:11px; height:11px; border-radius:50%; background:#2563eb; position:absolute; left:-25px; top:3px; }
+    .journey-step-title { font-weight:700; color:#111827; }
+    .journey-step-meta { color:#6b7280; font-size:12px; margin-top:3px; }
+</style>
+
+<div class="journey-wrap">
+    <div class="journey-header">
+        <div>
+            <h2 class="journey-title">Contact Journey</h2>
+            <div class="journey-sub">{{ email }}</div>
+        </div>
+        <a class="journey-back" href="javascript:history.back()">← Back</a>
+    </div>
+
+    {% if error %}
+        <div class="journey-alert">{{ error }}</div>
+    {% endif %}
+
+    {% if contact %}
+        {% set p = contact.properties %}
+
+        <div class="journey-grid">
+            <div class="journey-card"><div class="journey-label">Email</div><div class="journey-value">{{ p.email|default('Unknown') }}</div></div>
+            <div class="journey-card"><div class="journey-label">Name</div><div class="journey-value">{{ p.firstname|default('') }} {{ p.lastname|default('') }}</div></div>
+            <div class="journey-card"><div class="journey-label">Company</div><div class="journey-value">{{ p.company|default('Unknown') }}</div></div>
+            <div class="journey-card"><div class="journey-label">Lifecycle</div><div class="journey-value">{{ p.lifecyclestage|default('Unknown') }}</div></div>
+            <div class="journey-card"><div class="journey-label">Created</div><div class="journey-value">{{ p.createdate|default('Unknown') }}</div></div>
+            <div class="journey-card"><div class="journey-label">Last Modified</div><div class="journey-value">{{ p.lastmodifieddate|default('Unknown') }}</div></div>
+        </div>
+
+        <div class="journey-section">
+            <h3>SignalAtlas / Matomo Attribution Fields</h3>
+            <div class="journey-grid">
+                <div class="journey-card"><div class="journey-label">Matomo Visitor ID</div><div class="journey-value">{{ p.matomo_visitor_id|default('Unknown') ?: 'Unknown' }}</div></div>
+                <div class="journey-card"><div class="journey-label">SignalAtlas Page</div><div class="journey-value">{{ p.signalatlas_page_url|default('Unknown') ?: 'Unknown' }}</div></div>
+                <div class="journey-card"><div class="journey-label">UTM Source</div><div class="journey-value">{{ p.signalatlas_utm_source|default('Unknown') ?: 'Unknown' }}</div></div>
+                <div class="journey-card"><div class="journey-label">UTM Campaign</div><div class="journey-value">{{ p.signalatlas_utm_campaign|default('Unknown') ?: 'Unknown' }}</div></div>
+            </div>
+        </div>
+
+        <div class="journey-section">
+            <h3>Journey Timeline</h3>
+            <div class="journey-timeline">
+                <div class="journey-step">
+                    <div class="journey-step-title">SignalAtlas visitor / page</div>
+                    <div class="journey-step-meta">
+                        Page: {{ p.signalatlas_page_url|default('Unknown') ?: 'Unknown' }},
+                        Visitor ID: {{ p.matomo_visitor_id|default('Unknown') ?: 'Unknown' }}
+                    </div>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-step-title">HubSpot contact created / matched</div>
+                    <div class="journey-step-meta">Email: {{ p.email|default('Unknown') }}, Created: {{ p.createdate|default('Unknown') }}</div>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-step-title">Lifecycle stage</div>
+                    <div class="journey-step-meta">{{ p.lifecyclestage|default('Unknown') }}</div>
+                </div>
+                <div class="journey-step">
+                    <div class="journey-step-title">Opportunity / revenue</div>
+                    <div class="journey-step-meta">{{ deals.total|default(0) }} associated deal(s)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="journey-section">
+            <h3>Associated Deals</h3>
+
+            {% if deals.error is defined %}
+                <div class="journey-alert">{{ deals.error }}</div>
+            {% endif %}
+
+            <div class="journey-table-wrap">
+                <table class="journey-table">
+                    <thead>
+                        <tr>
+                            <th>Deal Name</th>
+                            <th>Stage</th>
+                            <th>Amount</th>
+                            <th>Close Date</th>
+                            <th>Created</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for deal in deals.results %}
+                            {% set dp = deal.properties %}
+                            <tr>
+                                <td>{{ dp.dealname|default('Unknown') }}</td>
+                                <td>{{ dp.dealstage|default('Unknown') }}</td>
+                                <td>{{ dp.amount|default('0') }}</td>
+                                <td>{{ dp.closedate|default('Unknown') }}</td>
+                                <td>{{ dp.createdate|default('Unknown') }}</td>
+                            </tr>
+                        {% else %}
+                            <tr>
+                                <td colspan="5"><span class="journey-badge">Unknown</span> No associated deal found for this contact.</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        {% if p.matomo_visitor_id is empty or p.signalatlas_page_url is empty %}
+            <div class="journey-alert">
+                Gap: Full website visitor journey is Unknown until Matomo Visitor ID and SignalAtlas page URL are populated on this HubSpot contact.
+            </div>
+        {% endif %}
+    {% endif %}
+</div>

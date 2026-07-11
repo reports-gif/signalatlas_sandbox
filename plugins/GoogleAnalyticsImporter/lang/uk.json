@@ -1,0 +1,14 @@
+{
+    "GoogleAnalyticsImporter": {
+        "Actions": "Дії",
+        "EndDate": "Дата завершення",
+        "GAImportNoDataScreenStep07": "Натисніть \"%1$s\".",
+        "IsMobileApp": "Мобільний Застосунок",
+        "None": "Немає",
+        "Optional": "Не обовязково",
+        "StartDate": "Дата початку",
+        "Status": "Статус",
+        "StatusErroredName": "Помилка",
+        "Troubleshooting": "Усунення проблем"
+    }
+}

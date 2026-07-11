@@ -1,0 +1,25 @@
+{
+    "MarketingCampaignsReporting": {
+        "CampaignId": "Kampagnen-Id",
+        "CampaignIds": "Kampagnen-IDs",
+        "CombinedKeywordContent": "Suchbegriff - Inhalt",
+        "CombinedSourceMedium": "Herkunftsseite - Medium",
+        "CombinedSourcesMediums": "Kampagne Herkunftsseite - Medium",
+        "Content": "Kampagneninhalt",
+        "Contents": "Kampagneninhalte",
+        "DoNotChangeCaseOfUtmParametersDescription": "Wenn aktiviert, behält Matomo die ursprüngliche Groß- und Kleinschreibung von Kampagnenparametern bei, um die Kompatibilität mit Drittanbieterdiensten wie Google zu gewährleisten. Wenn deaktiviert, werden alle Kampagnenparameter in Kleinbuchstaben umgewandelt.",
+        "DoNotChangeCaseOfUtmParametersTitle": "Großschreibung der Kampagnenparameter beibehalten",
+        "Group": "Kampagnengruppe",
+        "Groups": "Kampagnengruppen",
+        "Keyword": "Kampagnenschlüsselwort",
+        "Keywords": "Kampagnensuchbegriffe",
+        "Medium": "Kampagnen Medium",
+        "Mediums": "Kampagne Medien",
+        "Name": "Kampagnenname",
+        "Names": "Kampagnennamen",
+        "Placement": "Kampagnenplatzierung",
+        "Placements": "Kampagnenplatzierungen",
+        "Source": "Kampagnen Herkunftsseite",
+        "Sources": "Kampagnen Herkunftsseiten"
+    }
+}

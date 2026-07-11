@@ -1,0 +1,9 @@
+{
+    "Provider": {
+        "ColumnProvider": "Hizmet sağlayıcı",
+        "PluginDescription": "Bu rapor, ziyaretçilerin İnternet hizmeti aldığı hizmet sağlayıcı bilgilerini içerir.",
+        "ProviderReportDocumentation": "Bu rapor ziyaretçilerin siteye hangi İnternet hizmeti sağlayıcıları üzerinden eriştiği ile ilgili bilgileri içerir. Bir hizmet sağlayıcının adına tıklayarak ayrıntılı bilgi alabilirsiniz. %s Matomo bir ziyaretçinin hizmet sağlayıcısını belirleyemediğinde IP adresini görüntüler.",
+        "ProviderReportFooter": "Bilinmeyen sağlayıcılar IP adresine bakılamadığı anlamına gelir.",
+        "WidgetProviders": "Hizmet sağlayıcılar"
+    }
+}

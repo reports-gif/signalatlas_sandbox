@@ -1,0 +1,32 @@
+{
+    "IP2Proxy": {
+        "Asn": "ASN",
+        "City": "Stad",
+        "Country": "Land",
+        "Device": "Enhet",
+        "Domain": "Domän",
+        "DownloadYourBinDatabase": "Ladda ner din kostnadsfria IP2Proxy-databas från webbplatsen %1$sIP2Location LITE%2$s. För mer exakta resultat, använd databasen %3$sIP2Proxy Commercial%4$s.<br>Ladda upp BIN-databasen till <strong>/misc</strong> och infoga den absoluta sökvägen här.",
+        "FindBelowProxyDetailsReport": "Nedan hittar du gårdagens proxyrapport.",
+        "Hi": "Hej,",
+        "IP2ProxyBinDatabase": "IP2Proxy BIN Databas",
+        "Isp": "ISP",
+        "LastVisit": "Senaste besök",
+        "LastVisitDuration": "Längd för senaste besök",
+        "LifeTimeOfCacheForResultsInWeeks": "Antal veckor som resultatet måste lagras i cachen för.",
+        "NoOneVisitedWebsiteYesterday": "Vi beklagar, men ingen besökte din webbsida igår…",
+        "NumberOfVisits": "Antal besök",
+        "Proxy": "Proxy",
+        "ProxyDetails": "Proxy detaljer",
+        "ProxyDetailsReportSubject": "[%1$s] Din dagliga rapport / Proxydetaljer",
+        "ProxyType": "Proxytyp",
+        "ReferrerName": "Hänvisningsnamn",
+        "ReferrerType": "Hänvisningstyp",
+        "Region": "Område",
+        "SubscribeToEmailReport": "Prenumerera på e-postrapporterna",
+        "ThanksForUsing": "Tack för att du använder IP2Location-tjänsten.",
+        "Threat": "Hot",
+        "Type": "Typ",
+        "UsageType": "Användningstyp",
+        "WantToReceiveDailyReport": "Jag vill få daglig rapport via e-post med proxydetaljer för de som besökte mina webbsidor."
+    }
+}

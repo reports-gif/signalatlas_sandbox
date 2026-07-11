@@ -1,0 +1,18 @@
+{
+    "CompanyFromIP": {
+        "CompanyName": "Company",
+        "Companies": "Companies",
+        "ReportName": "Companies",
+        "ReportDocumentation": "Shows which companies and organizations visited your website, resolved from visitor IP addresses via ipinfo.io.",
+        "WidgetTitle": "Visits by Company",
+        "SegmentName": "Company Name",
+        "SettingApiToken": "ipinfo.io API Token",
+        "SettingApiTokenDesc": "Your ipinfo.io API token. Get a free token at https://ipinfo.io. Without a token, lookups are limited to 1,000 per day.",
+        "SettingCacheTtl": "Cache Duration (days)",
+        "SettingCacheTtlDesc": "Number of days to cache IP lookup results. Longer cache reduces API calls. Minimum 1, maximum 365.",
+        "SettingTimeout": "Request Timeout (seconds)",
+        "SettingTimeoutDesc": "Maximum seconds to wait for ipinfo.io responses. Keep this low to avoid slowing visit tracking. Minimum 1, maximum 30.",
+        "SettingEnable": "Enable Company Lookup",
+        "SettingEnableDesc": "When disabled, no IP lookups are performed and company names are not recorded for new visits."
+    }
+}

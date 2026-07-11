@@ -1,0 +1,42 @@
+{
+    "name": "CompanyFromIP",
+    "description": "Enriches visitor data with company and organization names resolved from IP addresses via ipinfo.io.",
+    "version": "1.0.0",
+    "theme": false,
+    "require": {
+        "matomo": ">=5.0.0-b1,<6.0.0-b1",
+        "php": ">=8.1.0"
+    },
+    "authors": [
+        {
+            "name": "Ronan Chardonneau",
+            "email": "contact@ronan-chardonneau.com",
+            "homepage": "https://ronan-chardonneau.net"
+        }
+    ],
+    "homepage": "https://ronan-chardonneau.net",
+    "license": "GPL v3+",
+    "keywords": [
+        "ip",
+        "company",
+        "enrichment",
+        "b2b",
+        "visitor",
+        "organization",
+        "lead"
+    ],
+    "support": {
+        "issues": "https://github.com/Chardonneaur/plugin-CompanyFromIP/issues",
+        "forum": "https://forum.matomo.org",
+        "source": "https://github.com/Chardonneaur/plugin-CompanyFromIP"
+    },
+    "archive": {
+        "exclude": [
+            "tests",
+            "node_modules",
+            ".github",
+            ".gitignore",
+            "docs"
+        ]
+    }
+}

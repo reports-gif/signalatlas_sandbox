@@ -1,0 +1,25 @@
+{
+    "MarketingCampaignsReporting": {
+        "CampaignId": "Aitheantas an Fheachtais",
+        "CampaignIds": "Aitheantas Feachtas",
+        "CombinedKeywordContent": "Eochairfhocal - Ábhar",
+        "CombinedSourceMedium": "Foinse - Meánach",
+        "CombinedSourcesMediums": "Foinse Feachtais - Meánach",
+        "Content": "Ábhar an Fheachtais",
+        "Contents": "Ábhair na bhFeachtas",
+        "DoNotChangeCaseOfUtmParametersDescription": "Nuair a bheidh sé cumasaithe, coimeádfaidh Matomo an caipitliú bunaidh ar pharaiméadair feachtais chun comhoiriúnacht le seirbhísí tríú páirtí ar nós Google a chinntiú. Má tá sé díchumasaithe, déanfar gach paraiméadair feachtais a thiontú go cás íochtair.",
+        "DoNotChangeCaseOfUtmParametersTitle": "Coinnigh an chaipitliú paraiméadar feachtais",
+        "Group": "Grúpa Feachtais",
+        "Groups": "Grúpaí Feachtais",
+        "Keyword": "Eochairfhocal Feachtais",
+        "Keywords": "Eochairfhocail Feachtais",
+        "Medium": "Meán Feachtas",
+        "Mediums": "Meán Feachtais",
+        "Name": "Ainm an Fheachtais",
+        "Names": "Ainmneacha Feachtas",
+        "Placement": "Socrúchán Feachtas",
+        "Placements": "Socrúcháin Feachtais",
+        "Source": "Foinse Feachtais",
+        "Sources": "Foinsí Feachtais"
+    }
+}

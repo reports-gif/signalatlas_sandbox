@@ -1,0 +1,25 @@
+{
+    "MarketingCampaignsReporting": {
+        "Name": "Campaign Name",
+        "Keyword": "Campaign Keyword",
+        "Source": "Campaign Source",
+        "Medium": "Campaign Medium",
+        "Content": "Campaign Content",
+        "Group": "Campaign Group",
+        "Placement": "Campaign Placement",
+        "CombinedSourceMedium": "Source - Medium",
+        "CampaignId": "Campaign Id",
+        "CombinedKeywordContent": "Keyword - Content",
+        "Names": "Campaign Names",
+        "Keywords": "Campaign Keywords",
+        "Sources": "Campaign Sources",
+        "Mediums": "Campaign Mediums",
+        "Contents": "Campaign Contents",
+        "Groups": "Campaign Groups",
+        "Placements": "Campaign Placements",
+        "CampaignIds": "Campaign Ids",
+        "CombinedSourcesMediums": "Campaign Source - Medium",
+        "DoNotChangeCaseOfUtmParametersTitle": "Keep campaign parameter capitalisation",
+        "DoNotChangeCaseOfUtmParametersDescription": "When enabled, Matomo will keep the original capitalisation of campaign parameters to ensure compatibility with third-party services like Google. If disabled, all campaign parameters will be converted to lowercase."
+    }
+}

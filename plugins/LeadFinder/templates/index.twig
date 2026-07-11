@@ -1,0 +1,33 @@
+<h2>Lead Finder</h2>
+
+<button onclick="fetchLeads()">Find Directors</button>
+
+<div id="result"></div>
+
+<script>
+function fetchLeads() {
+    var company = "intentamplify.com";
+    var city = "Pune";
+
+    fetch('index.php?module=LeadFinder&action=getLeads&company=' + company + '&city=' + city)
+    .then(res => res.json())
+    .then(data => {
+        let html = "";
+
+        if (!data.people) {
+            html = "No data found";
+        } else {
+            data.people.forEach(p => {
+                html += `<div>
+                    <b>${p.name}</b><br>
+                    ${p.title}<br>
+                    ${p.organization.name}
+                    <hr>
+                </div>`;
+            });
+        }
+
+        document.getElementById("result").innerHTML = html;
+    });
+}
+</script>

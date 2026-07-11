@@ -1,0 +1,16 @@
+{
+    "Forecast": {
+        "PluginName": "Forecast",
+        "PluginDescription": "Predicts future visitor numbers per site using the Prophet time-series library.",
+        "WidgetName": "Forecast",
+        "ReportName": "Forecast Report",
+        "ColumnUniqueVisitors": "Unique visitors",
+        "ColumnVisits": "Visits",
+        "SettingPythonBinPathTitle": "Path to python bin",
+        "SettingPythonBinPathDescription": "Set the path to the python executable.",
+        "SettingApiKeyTitle": "API Key",
+        "SettingApiKeyDescription": "API key from menotec. Contact info@menotec.de for an API key.",
+        "SettingApiHostnameTitle": "API hostname",
+        "SettingApiHostnameDescription": "Enter the menotec hostname (e.g. http://forecast.localhost). Contact info@menotec.de for the hostname."
+    }
+}

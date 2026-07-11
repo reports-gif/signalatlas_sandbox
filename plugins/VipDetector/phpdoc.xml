@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdocumentor
+        configVersion="3"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="https://www.phpdoc.org"
+>
+    <title>Documentation</title>
+    <paths>
+        <output>docs/.build</output>
+    </paths>
+    <version number="latest">
+        <api>
+            <source dsn=".">
+                <path>Commands</path>
+                <path>Dao</path>
+                <path>libs</path>
+                <path>*.php</path>
+            </source>
+            <ignore hidden="true" symlinks="true">
+                <path>tests/**/*</path>
+            </ignore>
+        </api>
+    </version>
+</phpdocumentor>

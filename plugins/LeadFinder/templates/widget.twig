@@ -1,0 +1,29 @@
+<div id="leadResults">
+    <button onclick="fetchLeads()">Find Directors</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+function fetchLeads() {
+    var company = "example.com"; // dynamic karenge next step me
+    var city = "Pune";
+
+    fetch('index.php?module=LeadFinder&action=getLeads&company=' + company + '&city=' + city)
+    .then(res => res.json())
+    .then(data => {
+        let html = "";
+
+        data.people.forEach(p => {
+            html += `<div>
+                <b>${p.name}</b><br>
+                ${p.title}<br>
+                ${p.organization.name}
+                <hr>
+            </div>`;
+        });
+
+        document.getElementById("result").innerHTML = html;
+    });
+}
+</script>

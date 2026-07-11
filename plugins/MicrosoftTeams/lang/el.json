@@ -1,0 +1,22 @@
+{
+    "MicrosoftTeams": {
+        "IncomingWebhookRequiredErrorMessage": "Το Webhook UI για το Microsoft Teams δεν μπορεί να είναι κενό.",
+        "IncomingWebhookInvalidErrorMessage": "Μη έγκυρη διεύθυνση url Webhook για το Microsoft Teams.",
+        "TeamsWebhookUrl": "Διεύθυνση URL Microsoft Teams Webhook",
+        "TeamsChannel": "Κανάλι Microsoft Teams",
+        "ClientIdTitle": "Αναγνωριστικό Πελάτη Microsoft",
+        "ClientIdDescription": "Εισαγάγετε το αναγνωριστικό σας Πελάτη Microsft που υπάρχει στη σελίδα σύνοψης της εφαρμογής πελάτη. %1$sΜάθετε περισσότερα%2$s.",
+        "ClientSecretTitle": "Συνθηματικό Πελάτη Microsoft",
+        "ClientSecretExpiryDateTitle": "Ημερομηνία Λήξης Συνθηματικού Πελάτη Microsoft",
+        "ClientSecretExpiryDateDescription": "Προαιρετικό. Καθορίστε την ημερομηνία λήξης στη μορφή ΕΕΕΕ-ΜΜ-ΗΗ για να λάβετε ενημέρωση κοντά στη λήξη.",
+        "ClientSecretDescription": "Εισαγάγετε το συνθηματικό Πελάτη Microsoft που υπάρχει στη σελίδα πιστοποιητικών και συνθηματικών εφαρμογής Πελάτη. Η προτεινόμενη λήξη είναι στους 24 μήνες. %1$sΜάθετε περισσότερα%2$s.",
+        "TenantIdTitle": "Αναγνωριστικό Microsoft Tenant",
+        "TenantIdDescription": "Εισαγάγετε το αναγνωριστικό Microsoft Tenat που υπάρχει στη σελίδα Σύνοψης εφαρμογής πελάτη. %1$sΜάθετε περισσότερα%2$s.",
+        "TeamIdTitle": "Αναγνωριστικό Microsoft Teams",
+        "TeamIdDescription": "Εισαγάγετε το αναγνωριστικό σας Microsoft Teams. %1$sΜάθετε περισσότερα%2$s.",
+        "TeamsEnterYourWebhookUrlText": "Εισαγάγετε τη διεύθυνση URL για το Microsoft Teams Webook. %1$sΜάθετε περισσότερα%2$s για το πώς να δείτε τη διεύθυνση UIRL Webhook.",
+        "RequiredFieldsNotSet": "Τα απαιτούμενα πεδία για την αποστολή αρχείου δεν έχουν οριστεί. Παρακαλώ ορίστε τα %1$sεδώ%2$s.",
+        "PleaseFindYourReport": "Εδώ είναι η αναφορά σας %1$s για το %2$s.",
+        "MicrosoftTeamsAlertContent": "Το %1$s έχει πυροδοτηθεί για τον ιστοτόπο %2$s ως η μετρική %3$s στην αναφορά %4$s %5$s."
+    }
+}

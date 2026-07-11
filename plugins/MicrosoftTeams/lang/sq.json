@@ -1,0 +1,23 @@
+{
+    "MicrosoftTeams": {
+        "IncomingWebhookRequiredErrorMessage": "URL-ja për Webhook Microsoft Teams s’mund të jetë e zbrazët.",
+        "IncomingWebhookInvalidErrorMessage": "URL e pavlefshme për Webhook Microsoft Teams.",
+        "TeamsWebhookUrl": "URL Webhook-u për Microsoft Teams",
+        "TeamsChannel": "Kanal Microsoft Teams",
+        "ClientIdTitle": "ID Klienti Microsoft",
+        "ClientIdDescription": "Jepni ID-në tuaj për Klient Microsoft, që e gjeni te faqja Përmbledhje e aplikacionit klient. %1$sMësoni më tepër%2$s.",
+        "ClientSecretTitle": "E fshehtë Klienti Microsoft",
+        "ClientSecretExpiryDateTitle": "Datë Skadimi të Fshehte Klienti Microsoft",
+        "ClientSecretExpiryDateDescription": "Opsionale. Caktoni datën e skadimit në format YYYY-MM-DD, që të merrni sinjalizim skadimi.",
+        "ClientSecretDescription": "Jepni të Fshehtën e Klientit tuaj Microsoft të përcaktuar te Dëshmitë dhe faqja e të fshehtave të aplikacionit klient. Skadim i rekomanduar është 24 muaj. %1$sMësoni më tepër%2$s.",
+        "TenantIdTitle": "ID Microsoft Tenant",
+        "TenantIdDescription": "Jepni ID-në tuaj për Microsoft Tenant, që gjendet te faqja Përmbledhje e aplikacionit klient. %1$sMësoni më tepër%2$s.",
+        "TeamIdTitle": "ID Microsoft Teams",
+        "TeamIdDescription": "Jepni ID-në tuaj Microsoft Teams. %1$sMësoni më tepër%2$s.",
+        "TeamsEnterYourWebhookUrlText": "Jepni URL-në e Webhook-ut tuaj Microsoft Teams. %1$sMësoni më tepër%2$s se si të merrni URL-në e Webhook-ut.",
+        "RequiredFieldsNotSet": "S’janë plotësuar fushat e domosdoshme për dërgim kartele. Ju lutemi, ujdisini ato %1$skëtu%2$s.",
+        "PleaseFindYourReport": "Ja raporti juaj %1$s për %2$s.",
+        "MicrosoftTeamsAlertContent": "%1$s është vënë në punë për sajtin %2$s si vlera %3$s në raportin %4$s %5$s.",
+        "ClientSecretExpiryNote": "%1$sShënim:%2$s E fshehta e klientit është vënë të skadojë më %3$s. Ju lutemi, prodhoni një token të ri dhe përditësojeni te Matomo, që të garantohen raporte të pandërprerë të vënë në plan."
+    }
+}

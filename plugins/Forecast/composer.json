@@ -1,0 +1,18 @@
+{
+    "name": "menotec/matomo-forecast",
+    "description": "Matomo Forecast Plugin",
+    "type": "matomo-plugin",
+    "license": "GPL-3.0-or-later",
+    "require": {
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.5|^9.6"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Piwik\\Plugins\\Forecast\\Tests\\": "tests/"
+        }
+    }
+}

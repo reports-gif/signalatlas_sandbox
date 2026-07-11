@@ -1,0 +1,24 @@
+{
+    "name": "TrackingSpamPrevention",
+    "description": "This plugin offers various options to prevent spammers and bots from making your data inaccurate so you can rely on your data again.",
+    "version": "5.0.9",
+    "theme": false,
+    "require": {
+        "matomo": ">=5.0.0-b1,<6.0.0-b1"
+    },
+    "authors": [
+        {
+            "name": "Matomo",
+            "email": "",
+            "homepage": "https://matomo.org"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/matomo-org/plugin-TrackingSpamPrevention/issues",
+        "forum": "https://forum.matomo.org/"
+    },
+    "homepage": "https://matomo.org",
+    "license": "GPL v3+",
+    "keywords": ["spam", "prevent", "cloud", "requests", "ddos"],
+    "category": "security"
+}

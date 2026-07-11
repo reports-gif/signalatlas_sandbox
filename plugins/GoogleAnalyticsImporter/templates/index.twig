@@ -1,0 +1,30 @@
+{% extends 'admin.twig' %}
+
+{% set title %}{{ 'GoogleAnalyticsImporter_ConfigureTheImporter'|translate }}{% endset %}
+
+{% block content %}
+    {{ postEvent('Template.beforeGoogleAnalyticsImporterHeader') }}
+
+    <div
+        vue-entry="GoogleAnalyticsImporter.AdminPage"
+        is-client-configurable="{{ isClientConfigurable|json_encode }}"
+        has-client-configuration="{{ hasClientConfiguration|json_encode }}"
+        is-configured="{{ isConfigured|json_encode }}"
+        auth-nonce="{{ auth_nonce|json_encode }}"
+        config-nonce="{{ nonce|json_encode }}"
+        start-import-nonce="{{ startImportNonce|default(null)|json_encode }}"
+        max-end-date-desc="{{ maxEndDateDesc|default(null)|json_encode }}"
+        extra-custom-dimensions-field="{{ extraCustomDimensionsField|default(null)|json_encode }}"
+        extra-custom-dimensions-field-ga4="{{ extraCustomDimensionsFieldGA4|default(null)|json_encode }}"
+        stream-ids-field-ga4="{{ streamIdsFieldGA4|default(null)|json_encode }}"
+        statuses="{{ statuses|default([])|json_encode }}"
+        stop-import-nonce="{{ stopImportNonce|default(null)|json_encode }}"
+        change-import-end-date-nonce="{{ changeImportEndDateNonce|default(null)|json_encode }}"
+        resume-import-nonce="{{ resumeImportNonce|default(null)|json_encode }}"
+        schedule-re-import-nonce="{{ scheduleReImportNonce|default(null)|json_encode }}"
+        import-options-ua="{{ importOptionsUA|default(null)|json_encode }}"
+        import-options-ga4="{{ importOptionsGA4|default(null)|json_encode }}"
+        configure-connection-props="{{ configureConnectionProps|json_encode }}"
+        extensions="{{ extensions|json_encode }}"
+    ></div>
+{% endblock %}

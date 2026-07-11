@@ -1,0 +1,23 @@
+{
+    "MicrosoftTeams": {
+        "IncomingWebhookRequiredErrorMessage": "Microsoft Teams internet kancası adresi boş olamaz.",
+        "IncomingWebhookInvalidErrorMessage": "Microsoft Teams internet kancası adresi geçersiz.",
+        "TeamsWebhookUrl": "Microsoft Teams internet kancası adresi",
+        "TeamsChannel": "Microsoft Teams kanalı",
+        "ClientIdTitle": "Microsoft istemci kimliği",
+        "ClientIdDescription": "İstemci uygulamasının özet sayfasında bulunan Microsoft istemci kimliğinizi yazın. %1$sAyrıntılı bilgi alın%2$s.",
+        "ClientSecretTitle": "Microsoft istemci parolası",
+        "ClientSecretExpiryDateTitle": "Microsoft istemci parolası geçerlilik sonu tarihi",
+        "ClientSecretExpiryDateDescription": "İsteğe bağlı. Geçerlilik sonu tarihinin bildirimlesi için geçerlilik sonu tarihini YYYY-AA-GG biçiminde ayarlayın.",
+        "ClientSecretDescription": "İstemci uygulamasının Sertifikalar ve parolalar sayfasında belirtilen Microsoft istemci parolanızı yazın. Önerilen geçerlilik sonu 24 aydır. %1$sAyrıntılı bilgi alın%2$s.",
+        "TenantIdTitle": "Microsoft kiracı kimliği",
+        "TenantIdDescription": "İstemci uygulamasının özet sayfasında bulunan Microsoft kiracı kimliğinizi yazın. %1$sAyrıntılı bilgi alın%2$s.",
+        "TeamIdTitle": "Microsoft Teams kimliği",
+        "TeamIdDescription": "Microsoft Teams kimliğinizi yazın. %1$sAyrıntılı bilgi alın%2$s.",
+        "TeamsEnterYourWebhookUrlText": "Microsoft Teams internet kancası adresinizi yazın. %1$sİnternet kancası adresini nasıl alacağınız ile ilgili%2$s ayrıntılı bilgi alın.",
+        "RequiredFieldsNotSet": "Bir dosya göndermek için gerekli alanlar ayarlanmamış. Lütfen %1$sburadan%2$s ayarlayın.",
+        "PleaseFindYourReport": "%2$s için %1$s raporunuz.",
+        "MicrosoftTeamsAlertContent": "%1$s, %2$s sitesi için %4$s %5$s raporundaki %3$s ölçümü olarak tetiklendi.",
+        "ClientSecretExpiryNote": "%1$sNot:%2$s İstemci parolasının geçerlilik süresi %3$s tarihinde dolacak. Zamanlanmış raporların sürekliliğini sağlamak için lütfen yeni bir kod oluşturun ve Matomo üzerinden güncelleyin."
+    }
+}

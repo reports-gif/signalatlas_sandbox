@@ -1,0 +1,27 @@
+{
+    "name": "VipDetector",
+    "description": "Detect visits from special predefined IP ranges and display the name",
+    "version": "3.0.3",
+    "require": {
+        "php": ">=7.4.33,<8.6",
+        "matomo": ">=5.0.0,<6.0.0-b1"
+    },
+    "authors": [
+        {
+            "name": "Sebastian Elisa Pfeifer",
+            "email": "sebastian@sebastian-elisa-pfeifer.eu",
+            "homepage": "https://blog.sebastian-elisa-pfeifer.eu"
+        }
+    ],
+    "support": {
+        "email": "sebastian@sebastian-elisa-pfeifer.eu",
+        "issues": "https://github.com/deadda7a/Matomo-VIP-Detector/issues",
+        "source": "https://github.com/deadda7a/Matomo-VIP-Detector"
+    },
+    "homepage": "https://github.com/deadda7a/Matomo-VIP-Detector",
+    "license": "MIT",
+    "keywords": ["ip", "isp", "range"],
+    "donate": {
+        "paypal": "sebastian.pfeifer@unicorncloud.org"
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "IP2Proxy": {
+        "Asn": "ASN",
+        "City": "Stadt",
+        "Country": "Land",
+        "Device": "Gerät",
+        "Domain": "Domain",
+        "DownloadYourBinDatabase": "Laden Sie sich die kostenlose IP2Proxy-Datenbank von der %1$sIP2Location LITE%2$s Webseite herunter. Für genauere Ergebnisse verwenden Sie bitte die %3$sIP2Proxy Commercial%4$s-Datenbank.<br>Laden Sie die BIN-Datenbank nach <strong>/misc</strong> hoch und fügen Sie den absoluten Pfad an dieser Stelle ein.",
+        "FindBelowProxyDetailsReport": "Sie finden den Proxy Bericht für gestern unten.",
+        "Hi": "Hallo,",
+        "IP2ProxyBinDatabase": "IP2Proxy BIN Datenbank",
+        "Isp": "ISP",
+        "LastVisit": "Letzter Besuch",
+        "LastVisitDuration": "Dauer letzter Besuch",
+        "LifeTimeOfCacheForResultsInWeeks": "Anzahl Wochen während denen die zurückgelieferten Resultate gecacht werden sollen.",
+        "NoOneVisitedWebsiteYesterday": "Es tut uns leid, aber gestern hat niemand Ihre Webseite besucht…",
+        "NumberOfVisits": "Anzahl Besuche",
+        "Proxy": "Proxy",
+        "ProxyDetails": "Proxy Details",
+        "ProxyDetailsReportSubject": "[%1$s] Ihr täglicher Bericht / Proxy Details",
+        "ProxyType": "Proxy Typ",
+        "ReferrerName": "Verweisname",
+        "ReferrerType": "Verweistyp",
+        "Region": "Region",
+        "SubscribeToEmailReport": "E-Mail Berichte abonnieren",
+        "ThanksForUsing": "Danke dass Sie den IP2Location Service verwenden.",
+        "Threat": "Bedrohung",
+        "Type": "Typ",
+        "UsageType": "Verwendungstyp",
+        "WantToReceiveDailyReport": "Ich möchten die täglichen Berichte per E-Mail erhalten mit den Proxy Details wer meine Webseiten besucht hat."
+    }
+}

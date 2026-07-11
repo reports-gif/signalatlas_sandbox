@@ -1,0 +1,113 @@
+<style>
+    .hs-dashboard { font-family: inherit; padding: 6px; }
+    .hs-header { display:flex; justify-content:space-between; gap:16px; margin-bottom:18px; border-bottom:1px solid #e5e7eb; padding-bottom:14px; }
+    .hs-title { margin:0; font-size:22px; font-weight:600; color:#1f2937; }
+    .hs-subtitle { margin-top:6px; font-size:13px; color:#6b7280; }
+    .hs-status { display:inline-flex; align-items:center; gap:6px; padding:6px 10px; border-radius:999px; font-size:12px; font-weight:600; white-space:nowrap; }
+    .hs-status.connected { background:#e8f7ef; color:#047857; border:1px solid #a7f3d0; }
+    .hs-status.error { background:#fef2f2; color:#b91c1c; border:1px solid #fecaca; }
+    .hs-metric-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(155px,1fr)); gap:14px; margin-bottom:20px; }
+    .hs-card { background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:15px; box-shadow:0 1px 2px rgba(0,0,0,.04); }
+    .hs-card-label { font-size:12px; color:#6b7280; font-weight:600; text-transform:uppercase; letter-spacing:.04em; margin-bottom:8px; }
+    .hs-card-value { font-size:24px; color:#111827; font-weight:700; line-height:1.1; }
+    .hs-card-note { margin-top:6px; font-size:11px; color:#9ca3af; }
+    .hs-section-title { margin:18px 0 10px; font-size:16px; color:#1f2937; font-weight:600; }
+    .hs-alert { background:#fff7ed; border:1px solid #fed7aa; color:#9a3412; border-radius:8px; padding:10px 12px; font-size:13px; margin-bottom:14px; }
+    .hs-table-wrap { width:100%; overflow:auto; border:1px solid #e5e7eb; border-radius:10px; background:#fff; max-height:420px; }
+    .hs-table { width:100%; border-collapse:collapse; min-width:900px; font-size:12px; }
+    .hs-table th { position:sticky; top:0; z-index:2; background:#f9fafb; color:#374151; text-align:left; padding:11px 12px; border-bottom:1px solid #e5e7eb; font-weight:700; white-space:nowrap; }
+    .hs-table td { padding:10px 12px; border-bottom:1px solid #f3f4f6; color:#374151; vertical-align:top; }
+    .hs-table tr:hover td { background:#f9fafb; }
+    .hs-email { font-weight:600; color:#2563eb; white-space:nowrap; text-decoration:none; }
+    .hs-email:hover { text-decoration:underline; }
+    .hs-badge { display:inline-block; padding:4px 8px; border-radius:999px; font-size:11px; font-weight:600; white-space:nowrap; }
+    .hs-badge-mql { background:#eff6ff; color:#1d4ed8; }
+    .hs-badge-sql { background:#f5f3ff; color:#6d28d9; }
+    .hs-badge-unknown { background:#f3f4f6; color:#6b7280; }
+    .hs-url { max-width:260px; display:inline-block; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; vertical-align:bottom; }
+    .hs-footer-note { margin-top:12px; font-size:12px; color:#6b7280; line-height:1.5; }
+</style>
+
+<div class="hs-dashboard">
+    <div class="hs-header">
+        <div>
+            <h2 class="hs-title">HubSpot Attribution Dashboard</h2>
+            <div class="hs-subtitle">Click any email to view that contact journey.</div>
+        </div>
+
+        {% if connection.connected %}
+            <div class="hs-status connected">● Connected</div>
+        {% else %}
+            <div class="hs-status error">● Error</div>
+        {% endif %}
+    </div>
+
+    {% if not connection.connected %}
+        <div class="hs-alert">HubSpot connection error: {{ connection.message }}</div>
+    {% endif %}
+
+    <div class="hs-metric-grid">
+        <div class="hs-card"><div class="hs-card-label">Connection</div><div class="hs-card-value">{% if connection.connected %}Live{% else %}Failed{% endif %}</div><div class="hs-card-note">HubSpot API status</div></div>
+        <div class="hs-card"><div class="hs-card-label">MQL</div><div class="hs-card-value">{{ mqlCount }}</div><div class="hs-card-note">Marketing Qualified Leads</div></div>
+        <div class="hs-card"><div class="hs-card-label">SQL</div><div class="hs-card-value">{{ sqlCount }}</div><div class="hs-card-note">Sales Qualified Leads</div></div>
+        <div class="hs-card"><div class="hs-card-label">Opportunities</div><div class="hs-card-value">{{ opportunityCount }}</div><div class="hs-card-note">HubSpot deals fetched</div></div>
+        <div class="hs-card"><div class="hs-card-label">Revenue</div><div class="hs-card-value">{{ revenue|number_format(0, '.', ',') }}</div><div class="hs-card-note">Closed-won amount if mapped</div></div>
+    </div>
+
+    {% if mqlFetched is defined or sqlFetched is defined or dealsFetched is defined %}
+        <div class="hs-alert">
+            Fetched records: MQL {{ mqlFetched|default('N/A') }}, SQL {{ sqlFetched|default('N/A') }}, Deals {{ dealsFetched|default('N/A') }}.
+            {% if mqlTruncated|default(false) or sqlTruncated|default(false) or dealsTruncated|default(false) %} Some records may be truncated due to safety limits.{% endif %}
+        </div>
+    {% endif %}
+
+    <div class="hs-section-title">Attribution Chain Examples</div>
+
+    <div class="hs-table-wrap">
+        <table class="hs-table">
+            <thead>
+                <tr>
+                    <th>Email</th>
+                    <th>Lifecycle</th>
+                    <th>Matomo Visitor ID</th>
+                    <th>SignalAtlas Page</th>
+                    <th>UTM Source</th>
+                    <th>UTM Campaign</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in exampleRows %}
+                    <tr>
+                        <td>
+                            {% if row.email != 'Unknown' %}
+                                <a class="hs-email" href="index.php?module=HubSpotDashboard&action=journey&email={{ row.email|url_encode }}" target="_blank">{{ row.email }}</a>
+                            {% else %}
+                                <span class="hs-badge hs-badge-unknown">Unknown</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if row.lifecycle == 'marketingqualifiedlead' %}
+                                <span class="hs-badge hs-badge-mql">MQL</span>
+                            {% elseif row.lifecycle == 'salesqualifiedlead' %}
+                                <span class="hs-badge hs-badge-sql">SQL</span>
+                            {% else %}
+                                <span class="hs-badge hs-badge-unknown">{{ row.lifecycle }}</span>
+                            {% endif %}
+                        </td>
+                        <td>{% if row.matomoVisitorId == 'Unknown' or row.matomoVisitorId is empty %}<span class="hs-badge hs-badge-unknown">Unknown</span>{% else %}{{ row.matomoVisitorId }}{% endif %}</td>
+                        <td>{% if row.pageUrl == 'Unknown' or row.pageUrl is empty %}<span class="hs-badge hs-badge-unknown">Unknown</span>{% else %}<span class="hs-url" title="{{ row.pageUrl }}">{{ row.pageUrl }}</span>{% endif %}</td>
+                        <td>{% if row.utmSource == 'Unknown' or row.utmSource is empty %}<span class="hs-badge hs-badge-unknown">Unknown</span>{% else %}{{ row.utmSource }}{% endif %}</td>
+                        <td>{% if row.utmCampaign == 'Unknown' or row.utmCampaign is empty %}<span class="hs-badge hs-badge-unknown">Unknown</span>{% else %}{{ row.utmCampaign }}{% endif %}</td>
+                    </tr>
+                {% else %}
+                    <tr><td colspan="6"><span class="hs-badge hs-badge-unknown">Unknown</span> No attribution records available.</td></tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="hs-footer-note">
+        <strong>Evidence status:</strong> Click an email to open the contact journey.
+        Visitor/page attribution will remain <strong>Unknown</strong> until <code>matomo_visitor_id</code>, <code>signalatlas_page_url</code>, <code>signalatlas_utm_source</code> and <code>signalatlas_utm_campaign</code> are populated in HubSpot contact records.
+    </div>
+</div>

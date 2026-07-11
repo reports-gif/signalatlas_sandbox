@@ -1,0 +1,26 @@
+{
+    "name": "IP2Location",
+    "version": "5.5.2",
+    "keywords": [
+        "ip2location", "geolocation", "visitor location", "ip to location"
+    ],
+    "homepage": "https:\/\/www.ip2location.com\/developers\/piwik",
+    "description": "Use the IP2Location geolocation service to lookup your visitors' locations. You can configure the settings under System → IP2Location.",
+    "license": "GPL-3.0+",
+    "authors": [
+        {
+            "name": "IP2Location",
+            "email": "support@ip2location.com",
+            "homepage": "https:\/\/www.ip2location.com"
+        }
+    ],
+    "support": {
+        "email": "support@ip2location.com",
+        "issues": "https://github.com/ip2location/ip2location-piwik/issues",
+        "wiki": "https://github.com/ip2location/ip2location-piwik/wiki",
+        "source": "https://github.com/ip2location/ip2location-piwik"
+    },
+    "require": {
+        "matomo": ">=5.0.0-b1,<6.0.0-b1"
+    }
+}

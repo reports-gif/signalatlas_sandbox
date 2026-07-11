@@ -1,0 +1,23 @@
+{
+  "name": "Forecast",
+  "version": "5.7.4",
+  "description": "This Matomo plugin adds a future visits forecast based on the prophet time‑series library",
+  "keywords": ["forecast"],
+  "license": "GPL-3.0+",
+  "homepage": "https://matomo.org",
+  "require": {
+    "matomo": ">=5.0.0-b4,<6.0.0-b1"
+  },
+  "support": {
+    "issues": "https://github.com/menotec-de/matomo-forecast/issues",
+    "forum": "https://forum.matomo.org",
+    "source": "https://github.com/menotec-de/matomo-forecast"
+  },
+  "authors": [
+    {
+      "name": "Menotec",
+      "homepage": "https://matomo.menotec.de"
+    }
+  ],
+  "category": "customisation"
+}

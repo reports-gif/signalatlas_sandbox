@@ -1,0 +1,23 @@
+{
+    "MarketingCampaignsReporting": {
+        "CampaignId": "ID кампанії",
+        "CampaignIds": "ID'и кампанії",
+        "CombinedKeywordContent": "Ключове слово - Контент",
+        "CombinedSourceMedium": "Джерело - Носій",
+        "CombinedSourcesMediums": "Джерело кампанії - Носій",
+        "Content": "Уміст кампанії",
+        "Contents": "Контенти кампанії",
+        "Group": "Група кампанії",
+        "Groups": "Групи кампанії",
+        "Keyword": "Ключові слова кампанії",
+        "Keywords": "Ключові слова кампанії",
+        "Medium": "Середнє по кампанії",
+        "Mediums": "Носители кампанії",
+        "Name": "Назва кампанії",
+        "Names": "Назви кампаній",
+        "Placement": "Розміщення кампанії",
+        "Placements": "Розміщення кампанії",
+        "Source": "Джерело кампанії",
+        "Sources": "Джерела кампанії"
+    }
+}
