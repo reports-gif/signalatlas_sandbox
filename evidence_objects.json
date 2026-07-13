@@ -2,34 +2,29 @@
   "metadata": {
     "mode": "internal-only",
     "claim_policy": "Evidence-first; unsupported certainty claims are blocked.",
-    "last_updated": "2026-07-13"
+    "last_updated": "2026-07-13",
+    "cockpit_version": "functional-attribution-cockpit-v1"
   },
   "objects": [
     {
-      "id": "ev_attribution_pilot_01",
-      "title": "Attribution Pilot 01 Evidence",
+      "id": "ev_functional_attribution_cockpit_v1",
+      "title": "Functional Attribution Cockpit v1 Evidence",
       "evidence_status": "PARTIAL",
-      "source_type": "SignalAtlas / Matomo read-only website evidence",
-      "summary": "Internal attribution pilot started and visible to Founder. Chain status is PARTIAL / HOLD with confidence score 42/100.",
+      "source_type": "SignalAtlas internal dashboard state",
+      "summary": "Internal cockpit state shows GA4 / UTM signal score at 74/100 and full-chain attribution score at 62/100. HubSpot capture path remains BLOCKED pending contact-level capture proof.",
       "fields": {
-        "evidence_source": "SignalAtlas / Matomo read-only website evidence",
-        "chain_status": "PARTIAL / HOLD",
-        "attribution_confidence_score": "42/100",
-        "missing_proof": [
-          "GA4 session confirmation",
-          "Raw UTM URL",
-          "Form/CTA submission",
-          "Visitor/contact identity",
-          "HubSpot contact-level match"
-        ],
-        "hubspot_truth": "PARTIAL",
-        "risk": "HIGH",
-        "next_action": "bind GA4 + UTM + HubSpot contact-level proof",
-        "go_hold": "HOLD"
+        "ga4_utm_score": "74/100",
+        "full_chain_attribution_score": "62/100",
+        "target_99": "Internal KPI only",
+        "hubspot_capture_path": "BLOCKED",
+        "owner": "Abhishek + Ankit",
+        "next_trigger": "SA-06 after HubSpot capture proof",
+        "founder_decision": "HOLD public/client-facing release",
+        "sa_04_gate": "Do not run yet; await Founder-visible browser confirmation"
       },
-      "risk": "HIGH if dashboard implies verified conversion or revenue attribution",
-      "owner": "SA-10 dashboard binding; SA-04 QA gate before client-facing approval",
-      "next_action": "bind GA4 + UTM + HubSpot contact-level proof"
+      "risk": "HIGH if dashboard implies verified full-chain conversion, revenue, ROI, or client-facing attribution certainty before HubSpot capture proof.",
+      "owner": "Abhishek + Ankit",
+      "next_action": "SA-06 after HubSpot capture proof"
     }
   ]
 }
