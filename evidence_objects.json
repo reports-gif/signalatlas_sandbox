@@ -6,74 +6,30 @@
   },
   "objects": [
     {
-      "id": "ev_dashboard_binding",
-      "title": "Dashboard JSON Binding",
+      "id": "ev_attribution_pilot_01",
+      "title": "Attribution Pilot 01 Evidence",
       "evidence_status": "PARTIAL",
-      "source_type": "GitHub contents",
-      "summary": "The dashboard reads local JSON files and renders KPI details from evidence-linked objects.",
-      "risk": "Browser proof is still required after GitHub Pages refresh.",
-      "owner": "SA-10",
-      "next_action": "Verify root JSON fetches from the final live URL."
-    },
-    {
-      "id": "ev_json_files",
-      "title": "Root JSON Files",
-      "evidence_status": "VERIFIED",
-      "source_type": "GitHub contents",
-      "summary": "dashboard_state.json, evidence_objects.json, and quarantine_register.json are defined as root dashboard dependencies.",
-      "risk": "Direct URL availability depends on GitHub Pages serving the latest main branch.",
-      "owner": "SA-10",
-      "next_action": "Open each JSON URL after commit propagation."
-    },
-    {
-      "id": "ev_attribution_hold",
-      "title": "Attribution Certainty Hold",
-      "evidence_status": "UNKNOWN",
-      "source_type": "Governance rule",
-      "summary": "No attribution-quality certainty is asserted in the repaired dashboard.",
-      "risk": "Approved analytics evidence is required before any stronger attribution claim.",
-      "owner": "SA-09 / SA-04",
-      "next_action": "Validate attribution chain through approved analytics evidence."
-    },
-    {
-      "id": "ev_crm_hold",
-      "title": "CRM and HubSpot Write Hold",
-      "evidence_status": "UNKNOWN",
-      "source_type": "Governance rule",
-      "summary": "HubSpot read/validation may inform recommendations, but writes are not included in this repair.",
-      "risk": "CRM truth remains unverified in this dashboard until approved evidence is connected.",
-      "owner": "SA-06",
-      "next_action": "Validate CRM truth in read-only mode when approved evidence is available."
-    },
-    {
-      "id": "ev_qa_gate",
-      "title": "SA-04 QA Gate",
-      "evidence_status": "PARTIAL",
-      "source_type": "Governance rule",
-      "summary": "Public or client-facing approval requires SA-04 QA and proof-pack validation.",
-      "risk": "Local or static visual inspection is not production proof.",
-      "owner": "SA-04",
-      "next_action": "Run browser, responsive, visual, and proof-pack validation."
-    },
-    {
-      "id": "ev_release_hold",
-      "title": "Internal-Only Release Label",
-      "evidence_status": "VERIFIED",
-      "source_type": "Dashboard policy",
-      "summary": "The dashboard labels the current state as internal only and keeps Founder decision at HOLD.",
-      "risk": "Client-facing release remains blocked until approved.",
-      "owner": "Founder / SA-04",
-      "next_action": "Approve, hold, reject, or escalate after QA."
-    },
-    {
-      "id": "ev_quarantine_register",
-      "title": "Quarantine Register",
-      "evidence_status": "PARTIAL",
-      "source_type": "Dashboard dependency",
-      "summary": "Unsupported certainty claims and missing proof items are listed in quarantine_register.json.",
-      "risk": "Items must not be converted to claims until evidence is verified.",
-      "owner": "SA-10 / SA-04",
-      "next_action": "Review quarantined items and assign validation owners."
+      "source_type": "SignalAtlas / Matomo read-only website evidence",
+      "summary": "Internal attribution pilot started and visible to Founder. Chain status is PARTIAL / HOLD with confidence score 42/100.",
+      "fields": {
+        "evidence_source": "SignalAtlas / Matomo read-only website evidence",
+        "chain_status": "PARTIAL / HOLD",
+        "attribution_confidence_score": "42/100",
+        "missing_proof": [
+          "GA4 session confirmation",
+          "Raw UTM URL",
+          "Form/CTA submission",
+          "Visitor/contact identity",
+          "HubSpot contact-level match"
+        ],
+        "hubspot_truth": "PARTIAL",
+        "risk": "HIGH",
+        "next_action": "bind GA4 + UTM + HubSpot contact-level proof",
+        "go_hold": "HOLD"
+      },
+      "risk": "HIGH if dashboard implies verified conversion or revenue attribution",
+      "owner": "SA-10 dashboard binding; SA-04 QA gate before client-facing approval",
+      "next_action": "bind GA4 + UTM + HubSpot contact-level proof"
     }
   ]
 }
