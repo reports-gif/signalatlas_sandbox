@@ -1,0 +1,19 @@
+{
+  "metadata": {
+    "mode": "internal-only",
+    "last_updated": "2026-07-13",
+    "version": "cockpit-v1-final"
+  },
+  "state": {
+    "ga4_utm_score": "74/100",
+    "full_chain_attribution_score": "62/100",
+    "target_99": "Internal KPI only",
+    "hubspot_capture_path": "BLOCKED",
+    "owner": "Abhishek + Ankit",
+    "next_trigger": "SA-06 after HubSpot capture proof",
+    "evidence_object": "ev_functional_attribution_cockpit_v1",
+    "quarantine_register": "qr_functional_attribution_cockpit_v1",
+    "founder_decision_card": "HOLD public/client-facing release",
+    "sa_04_gate": "Do not run yet"
+  }
+}
