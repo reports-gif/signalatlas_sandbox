@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "mode": "internal-only",
+    "last_updated": "2026-07-13",
+    "policy": "Do not present quarantined items as verified claims."
+  },
+  "items": [
+    {
+      "id": "qr_attribution_certainty",
+      "label": "Attribution quality certainty",
+      "status": "QUARANTINE",
+      "reason": "Approved attribution-chain evidence is not present in this dashboard repair package.",
+      "blocked_claim": "High-confidence attribution quality claim",
+      "owner": "SA-09 / SA-04",
+      "next_action": "Validate through approved analytics and attribution evidence."
+    },
+    {
+      "id": "qr_revenue_roi",
+      "label": "Revenue or ROI certainty",
+      "status": "QUARANTINE",
+      "reason": "No approved revenue or ROI proof was requested or provided for this repair.",
+      "blocked_claim": "Revenue, ROI, pipeline, SQL, or deal certainty claim",
+      "owner": "SA-05 / SA-06 / SA-04",
+      "next_action": "Keep values hidden or explicitly unverified until evidence is approved."
+    },
+    {
+      "id": "qr_public_release",
+      "label": "Public or client-facing release",
+      "status": "BLOCKED",
+      "reason": "Founder approval and SA-04 QA proof are required.",
+      "blocked_claim": "Live-ready or client-approved release",
+      "owner": "Founder / SA-04",
+      "next_action": "Complete proof-pack validation before any external approval request."
+    },
+    {
+      "id": "qr_crm_write",
+      "label": "HubSpot or CRM write",
+      "status": "BLOCKED",
+      "reason": "The repair is GitHub contents-only and does not include CRM writes.",
+      "blocked_claim": "CRM data has been corrected or updated",
+      "owner": "Founder / SA-06",
+      "next_action": "Request explicit Founder approval before any CRM write workflow."
+    }
+  ]
+}
