@@ -2,21 +2,22 @@
   "metadata": {
     "mode": "internal-only",
     "last_updated": "2026-07-13",
-    "policy": "Do not present quarantined items as verified claims."
+    "policy": "Do not present quarantined items as verified claims.",
+    "cockpit_version": "functional-attribution-cockpit-v1"
   },
   "items": [
     {
-      "id": "qr_attribution_pilot_01",
-      "label": "Attribution Pilot 01",
+      "id": "qr_functional_attribution_cockpit_v1",
+      "label": "Functional Attribution Cockpit v1",
       "status": "QUARANTINE",
-      "reason": "Attribution chain is PARTIAL / HOLD and missing GA4 session confirmation, raw UTM URL, form/CTA submission, visitor/contact identity, and HubSpot contact-level match.",
-      "blocked_claim": "Verified conversion, revenue attribution, client-facing attribution certainty, or public 99% attribution claim",
-      "risk": "HIGH if dashboard implies verified conversion or revenue attribution",
-      "allowed_use": "Internal Founder-visible evidence tracking only",
-      "release_status": "No public release. No client-facing claim. No production release.",
+      "reason": "HubSpot capture path is BLOCKED and contact-level capture proof is not available in the approved evidence chain.",
+      "blocked_claim": "Verified full-chain attribution, revenue attribution, ROI certainty, SQL/pipeline certainty, client-facing attribution certainty, or public 99/100 attribution claim",
+      "risk": "HIGH if dashboard implies verified conversion, revenue, ROI, SQL, pipeline, or attribution certainty.",
+      "allowed_use": "Internal Founder-visible evidence tracking and product testing only",
+      "release_status": "Public/client-facing release HOLD.",
       "crm_status": "No HubSpot write. No CRM update.",
-      "owner": "SA-10 dashboard binding; SA-04 QA gate before client-facing approval",
-      "next_action": "bind GA4 + UTM + HubSpot contact-level proof"
+      "owner": "Abhishek + Ankit",
+      "next_action": "SA-06 after HubSpot capture proof"
     }
   ]
 }
