@@ -2,123 +2,48 @@
   "metadata": {
     "dashboard": "SignalAtlas Internal Dashboard",
     "mode": "internal-only",
+    "route": "https://reports-gif.github.io/signalatlas_sandbox/index.html?v=attributionPilot01",
     "release_status": "HOLD",
     "last_updated": "2026-07-13",
-    "source_note": "GitHub production-branch dashboard repair package. Claims remain evidence-labeled and internal only."
+    "source_note": "Attribution Pilot 01 internal staging card. No production release, public release, client-facing claim, HubSpot write, CRM update, revenue claim, verified conversion claim, or 99% attribution claim."
   },
   "decision": {
-    "label": "Founder Decision",
+    "label": "GO/HOLD",
     "value": "HOLD",
     "status": "quarantine",
-    "detail": "Internal product-testing view only. Public or client-facing release requires SA-04 QA gate and Founder approval."
+    "detail": "Internal-only Founder-visible staging view. Public or client-facing release remains HOLD."
   },
-  "kpis": [
-    {
-      "id": "dashboard_health",
-      "name": "Dashboard Health",
-      "value": "Repair active",
-      "status": "partial",
-      "evidence_id": "ev_dashboard_binding",
-      "source_logic": "Root dashboard is bound to local JSON files and shows evidence status labels."
-    },
-    {
-      "id": "evidence_binding",
-      "name": "Evidence Binding",
-      "value": "JSON-backed",
-      "status": "verified",
-      "evidence_id": "ev_json_files",
-      "source_logic": "dashboard_state.json, evidence_objects.json, and quarantine_register.json are root-level dashboard dependencies."
-    },
-    {
-      "id": "attribution_quality",
-      "name": "Attribution Quality",
-      "value": "Unverified",
-      "status": "unknown",
-      "evidence_id": "ev_attribution_hold",
-      "source_logic": "No certainty claim is made without approved source evidence."
-    },
-    {
-      "id": "crm_truth",
-      "name": "CRM Truth",
-      "value": "Read-only hold",
-      "status": "unknown",
-      "evidence_id": "ev_crm_hold",
-      "source_logic": "HubSpot writes are blocked unless Founder explicitly approves."
-    },
-    {
-      "id": "qa_gate",
-      "name": "QA Gate",
-      "value": "SA-04 required",
-      "status": "blocked",
-      "evidence_id": "ev_qa_gate",
-      "source_logic": "Browser, responsive, visual, and proof-pack validation are required before client-facing approval."
-    },
-    {
-      "id": "release_readiness",
-      "name": "Release Readiness",
-      "value": "Internal only",
-      "status": "quarantine",
-      "evidence_id": "ev_release_hold",
-      "source_logic": "No public, client-facing, revenue, ROI, SQL, pipeline, or attribution certainty claims are approved."
-    }
-  ],
-  "sections": [
-    {
-      "title": "Portfolio Health",
-      "items": [
-        {
-          "title": "Client-product testing surface",
-          "body": "Internal readiness view only. Public approval is not implied.",
-          "status": "verified",
-          "evidence_id": "ev_release_hold"
-        },
-        {
-          "title": "Campaign delivery risk",
-          "body": "Open risk items need owner confirmation before external claims.",
-          "status": "partial",
-          "evidence_id": "ev_qa_gate"
-        },
-        {
-          "title": "Lead delivery ownership",
-          "body": "Owner actions are staged for review, not automatic CRM updates.",
-          "status": "signal",
-          "evidence_id": "ev_crm_hold"
-        }
-      ]
-    },
-    {
-      "title": "Signal Controls",
-      "items": [
-        {
-          "title": "Channel performance",
-          "body": "Rank by evidence quality before interpreting growth.",
-          "status": "partial",
-          "evidence_id": "ev_attribution_hold"
-        },
-        {
-          "title": "Owner actions",
-          "body": "Execution guidance remains separate from approval gates.",
-          "status": "verified",
-          "evidence_id": "ev_dashboard_binding"
-        },
-        {
-          "title": "Blocked or quarantined items",
-          "body": "Anything without traceable proof remains held.",
-          "status": "blocked",
-          "evidence_id": "ev_quarantine_register"
-        }
-      ]
-    }
-  ],
-  "qa": {
-    "score": 8.4,
-    "status": "PARTIAL",
-    "required_next_checks": [
-      "SA-04 QA gate",
-      "Chrome and Safari browser proof",
-      "90%, 100%, and 125% zoom proof",
-      "Desktop and laptop responsive proof",
-      "Production or staging URL proof"
-    ]
+  "pilot": {
+    "id": "attribution_pilot_01",
+    "label": "Attribution Pilot 01",
+    "internal_dashboard_visible_to_founder": "YES",
+    "internal_attribution_pilot_started": "YES",
+    "evidence_source": "SignalAtlas / Matomo read-only website evidence",
+    "chain_status": "PARTIAL / HOLD",
+    "attribution_confidence_score": "42/100",
+    "missing_proof": [
+      "GA4 session confirmation",
+      "Raw UTM URL",
+      "Form/CTA submission",
+      "Visitor/contact identity",
+      "HubSpot contact-level match"
+    ],
+    "hubspot_truth": "PARTIAL",
+    "risk": "HIGH",
+    "risk_detail": "HIGH if dashboard implies verified conversion or revenue attribution",
+    "next_action": "bind GA4 + UTM + HubSpot contact-level proof",
+    "go_hold": "HOLD",
+    "public_client_facing_claim": "HOLD",
+    "founder_decision_needed": "NO",
+    "internal_only_label_visible": "YES"
+  },
+  "claim_controls": {
+    "verified_conversion_claim": "NO",
+    "revenue_claim": "NO",
+    "attribution_99_percent_claim": "NO",
+    "hubspot_write": "NO",
+    "crm_update": "NO",
+    "production_release": "NO",
+    "public_release": "NO"
   }
 }
